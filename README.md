@@ -14,6 +14,6 @@ COLX is a cutting edge cryptocurrency, with many features not available in most 
 ### Coin Specs
 <table>
 <tr><td>Algo</td><td>Quark</td></tr>
-<tr><td>Block Time</td><td>120 Seconds</td></tr>
+<tr><td>Block Time</td><td>60 Seconds</td></tr>
 <tr><td>Difficulty Retargeting</td><td>Every Block</td></tr>
 </table>
