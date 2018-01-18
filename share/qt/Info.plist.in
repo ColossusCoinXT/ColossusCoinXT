@@ -32,7 +32,7 @@
   <string>COLX-Qt</string>
 
   <key>CFBundleIdentifier</key>
-  <string>io.colx.Pivx-Qt</string>
+  <string>io.colx.Colx-Qt</string>
 
   <key>CFBundleURLTypes</key>
   <array>
@@ -40,7 +40,7 @@
       <key>CFBundleTypeRole</key>
       <string>Editor</string>
       <key>CFBundleURLName</key>
-      <string>io.colx.PivxPayment</string>
+      <string>io.colx.ColxPayment</string>
       <key>CFBundleURLSchemes</key>
       <array>
         <string>colx</string>
@@ -54,7 +54,7 @@
       <key>UTTypeIdentifier</key>
       <string>io.colx.paymentrequest</string>
       <key>UTTypeDescription</key>
-      <string>Pivx payment request</string>
+      <string>Colx payment request</string>
       <key>UTTypeConformsTo</key>
       <array>
         <string>public.data</string>

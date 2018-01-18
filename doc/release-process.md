@@ -3,7 +3,7 @@ Release Process
 
 Before every release candidate:
 
-* Update translations (ping Fuzzbawls on Slack) see [translation_process.md](https://github.com/COLX-Project/COLX/blob/master/doc/translation_process.md#synchronising-translations).
+* Update translations (ping Fuzzbawls on Slack) see [translation_process.md](https://github.com/ColossusCoinXT/ColossusCoinXT/blob/master/doc/translation_process.md#synchronising-translations).
 
 Before every minor and major release:
 
@@ -24,10 +24,10 @@ If you're using the automated script (found in [contrib/gitian-build.sh](/contri
 Check out the source code in the following directory hierarchy.
 
     cd /path/to/your/toplevel/build
-    git clone https://github.com/colx-project/gitian.sigs.git
-    git clone https://github.com/colx-project/colx-detached-sigs.git
+    git clone https://github.com/ColossusCoinXT/gitian.sigs.git
+    git clone https://github.com/ColossusCoinXT/ColossusCoinXT-detached-sigs.git
     git clone https://github.com/devrandom/gitian-builder.git
-    git clone https://github.com/colx-project/colx.git
+    git clone https://github.com/ColossusCoinXT/ColossusCoinXT.git
 
 ### COLX maintainers/release engineers, suggestion for writing release notes
 
@@ -184,7 +184,7 @@ Codesigner only: Commit the detached codesign payloads:
 Non-codesigners: wait for Windows/OS X detached signatures:
 
 - Once the Windows/OS X builds each have 3 matching signatures, they will be signed with their respective release keys.
-- Detached signatures will then be committed to the [colx-detached-sigs](https://github.com/COLX-Project/colx-detached-sigs) repository, which can be combined with the unsigned apps to create signed binaries.
+- Detached signatures will then be committed to the [colx-detached-sigs](https://github.com/ColossusCoinXT/ColossusCoinXT-detached-sigs) repository, which can be combined with the unsigned apps to create signed binaries.
 
 Create (and optionally verify) the signed OS X binary:
 
@@ -260,6 +260,6 @@ Note: check that SHA256SUMS itself doesn't end up in SHA256SUMS, which is a spur
 
   - Archive release notes for the new version to `doc/release-notes/` (branch `master` and branch of the release)
 
-  - Create a [new GitHub release](https://github.com/COLX-Project/COLX/releases/new) with a link to the archived release notes.
+  - Create a [new GitHub release](https://github.com/ColossusCoinXT/ColossusCoinXT/releases/new) with a link to the archived release notes.
 
   - Celebrate

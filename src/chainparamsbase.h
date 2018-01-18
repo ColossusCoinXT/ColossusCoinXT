@@ -10,7 +10,7 @@
 
 /**
  * CBaseChainParams defines the base parameters (shared between colx-cli and colxd)
- * of a given instance of the Pivx system.
+ * of a given instance of the Colx system.
  */
 class CBaseChainParams
 {

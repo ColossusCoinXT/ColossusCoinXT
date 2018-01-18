@@ -1,4 +1,4 @@
-Mac OS X Build Instructions and Notes
+ColossusCoinXT/ColossusCoinXTMac OS X Build Instructions and Notes
 ====================================
 This guide will show you how to build colxd (headless client) for OSX.
 
@@ -44,7 +44,7 @@ Instructions: Homebrew
 
 1. Clone the github tree to get the source code and go into the directory.
 
-        git clone https://github.com/COLX-Project/COLX.git
+        git clone https://github.com/ColossusCoinXT/ColossusCoinXT.git
         cd COLX
 
 2.  Build colxd:

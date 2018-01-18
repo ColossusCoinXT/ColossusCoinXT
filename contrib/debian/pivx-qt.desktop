@@ -1,9 +1,9 @@
 [Desktop Entry]
 Encoding=UTF-8
-Name=Pivx
-Comment=Pivx P2P Cryptocurrency
-Comment[fr]=Pivx, monnaie virtuelle cryptographique pair à pair
-Comment[tr]=Pivx, eşten eşe kriptografik sanal para birimi
+Name=Colx
+Comment=Colx P2P Cryptocurrency
+Comment[fr]=Colx, monnaie virtuelle cryptographique pair à pair
+Comment[tr]=Colx, eşten eşe kriptografik sanal para birimi
 Exec=colx-qt %u
 Terminal=false
 Type=Application

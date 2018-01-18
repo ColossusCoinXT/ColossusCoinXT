@@ -17,7 +17,7 @@ BEGIN
         BLOCK "040904E4" // U.S. English - multilingual (hex)
         BEGIN
             VALUE "CompanyName",        "ColossusCoinXT"
-            VALUE "FileDescription",    "colxd (OSS daemon/client for Pivx)"
+            VALUE "FileDescription",    "colxd (OSS daemon/client for Colx)"
             VALUE "FileVersion",        VER_FILEVERSION_STR
             VALUE "InternalName",       "colxd"
             VALUE "LegalCopyright",     COPYRIGHT_STR

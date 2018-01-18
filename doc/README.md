@@ -41,7 +41,7 @@ The following are developer notes on how to build COLX on your native platform. 
 
 Development
 ---------------------
-The Pivx repo's [root README](https://github.com/COLX-Project/COLX/blob/master/README.md) contains relevant information on the development process and automated testing.
+The Colx repo's [root README](https://github.com/ColossusCoinXT/ColossusCoinXT/blob/master/README.md) contains relevant information on the development process and automated testing.
 
 - [Developer Notes](developer-notes.md)
 - [Multiwallet Qt Development](multiwallet-qt.md)

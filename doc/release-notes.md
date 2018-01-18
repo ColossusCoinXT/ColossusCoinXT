@@ -2,14 +2,14 @@
 
 COLX Core version *version* is now available from:
 
-  <https://github.com/colx-project/colx/releases>
+  <https://github.com/ColossusCoinXT/ColossusCoinXT/releases>
 
 This is a new major version release, including various bug fixes and
 performance improvements, as well as updated translations.
 
 Please report bugs using the issue tracker at github:
 
-  <https://github.com/colx-project/colx/issues>
+  <https://github.com/ColossusCoinXT/ColossusCoinXT/issues>
 
 Compatibility
 ==============
@@ -65,4 +65,4 @@ Credits
 Thanks to everyone who directly contributed to this release:
 
 
-As well as everyone that helped translating on [Transifex](https://www.transifex.com/projects/p/colx-project-translations/).
+As well as everyone that helped translating on [Transifex](https://www.transifex.com/projects/p/ColossusCoinXT-translations/).
