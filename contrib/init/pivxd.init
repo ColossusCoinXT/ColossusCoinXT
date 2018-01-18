@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-#  colxd The PIVX core server.
+#  colxd The COLX core server.
 #
 #
 # chkconfig: 345 80 20

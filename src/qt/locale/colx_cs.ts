@@ -239,7 +239,7 @@
         <translation>&amp;BIP 38 Šifrovat</translation>
     </message>
     <message>
-        <source>Enter a Pivx Address that you would like to encrypt using BIP 38. Enter a passphrase in the middle box. Press encrypt to compute the encrypted private key.</source>
+        <source>Enter a Colx Address that you would like to encrypt using BIP 38. Enter a passphrase in the middle box. Press encrypt to compute the encrypted private key.</source>
         <translation>Zadejte COLX adresu, kterou si přejete zašifrovat pomocí BIP38. Frázové heslo zadejte do prostředního boxu. Stiskněte šifrovat pro výpočet šifrovaného privátního klíče.</translation>
     </message>
     <message>
@@ -247,7 +247,7 @@
         <translation>Adresa:</translation>
     </message>
     <message>
-        <source>The PIVX address to sign the message with</source>
+        <source>The COLX address to sign the message with</source>
         <translation>COLX adresa pro podepsání zprávy</translation>
     </message>
     <message>
@@ -303,7 +303,7 @@
         <translation>Vložte BIP 38 šifrovaný privítní klíc. Frázové heslo vložte do prostředního boxu. Kliknětě na Dešifrovat Klíč pro výpočet privátního klíče. Poté co bude klíč dešifrován, kliknutím na 'Importovat Adresu' přidáte privátní klíč do Vaší peněženky.</translation>
     </message>
     <message>
-        <source>The PIVX address the message was signed with</source>
+        <source>The COLX address the message was signed with</source>
         <translation>COLX adresa zprávy byla podpsána</translation>
     </message>
     <message>
@@ -2199,7 +2199,7 @@ Prosím zkontrolujte adresu a zkuste to znovu.</translation>
 <context>
     <name>SignVerifyMessageDialog</name>
     <message>
-        <source>The PIVX address to sign the message with</source>
+        <source>The COLX address to sign the message with</source>
         <translation>COLX adresa pro podepsání zprávy</translation>
     </message>
     <message>
@@ -2231,7 +2231,7 @@ Prosím zkontrolujte adresu a zkuste to znovu.</translation>
         <translation>Podepsat zprávu k prokázání, že vlastníte tuto COLX adresu</translation>
     </message>
     <message>
-        <source>The PIVX address the message was signed with</source>
+        <source>The COLX address the message was signed with</source>
         <translation>COLX adresa zprávy byla podpsána</translation>
     </message>
     <message>

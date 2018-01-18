@@ -227,15 +227,15 @@
         <translation>&amp;BIP 38 加密</translation>
     </message>
     <message>
-        <source>Enter a Pivx Address that you would like to encrypt using BIP 38. Enter a passphrase in the middle box. Press encrypt to compute the encrypted private key.</source>
-        <translation>輸入你想 BIP 38 加密的 Pivx 位址, 輸入密碼在中間欄, 按下加密按鈕來產生加密私鑰.</translation>
+        <source>Enter a Colx Address that you would like to encrypt using BIP 38. Enter a passphrase in the middle box. Press encrypt to compute the encrypted private key.</source>
+        <translation>輸入你想 BIP 38 加密的 Colx 位址, 輸入密碼在中間欄, 按下加密按鈕來產生加密私鑰.</translation>
     </message>
     <message>
         <source>Address:</source>
         <translation>位址:</translation>
     </message>
     <message>
-        <source>The PIVX address to sign the message with</source>
+        <source>The COLX address to sign the message with</source>
         <translation>對訊息簽名的 COLX 位址</translation>
     </message>
     <message>
@@ -287,7 +287,7 @@
         <translation>&amp;BIP 38 解密</translation>
     </message>
     <message>
-        <source>The PIVX address the message was signed with</source>
+        <source>The COLX address the message was signed with</source>
         <translation>此訊息之 COLX 位址已簽章於</translation>
     </message>
     <message>
@@ -817,7 +817,7 @@
 <context>
     <name>SignVerifyMessageDialog</name>
     <message>
-        <source>The PIVX address to sign the message with</source>
+        <source>The COLX address to sign the message with</source>
         <translation>對訊息簽名的 COLX 位址</translation>
     </message>
     <message>
@@ -845,7 +845,7 @@
         <translation>使用簽章來證明你是該  COLX 位址的擁有者,</translation>
     </message>
     <message>
-        <source>The PIVX address the message was signed with</source>
+        <source>The COLX address the message was signed with</source>
         <translation>此訊息之 COLX 位址已簽章於</translation>
     </message>
     <message>

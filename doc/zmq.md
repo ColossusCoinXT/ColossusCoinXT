@@ -5,7 +5,7 @@ connections, inter-process communication, and shared-memory,
 providing various message-oriented semantics such as publish/subscribe,
 request/reply, and push/pull.
 
-The PIVX Core daemon can be configured to act as a trusted "border
+The COLX Core daemon can be configured to act as a trusted "border
 router", implementing the colx wire protocol and relay, making
 consensus decisions, maintaining the local blockchain database,
 broadcasting locally generated transactions into the network, and

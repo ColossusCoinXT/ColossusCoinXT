@@ -239,7 +239,7 @@
         <translation>&amp;BIP 38 Verschlüsselung</translation>
     </message>
     <message>
-        <source>Enter a Pivx Address that you would like to encrypt using BIP 38. Enter a passphrase in the middle box. Press encrypt to compute the encrypted private key.</source>
+        <source>Enter a Colx Address that you would like to encrypt using BIP 38. Enter a passphrase in the middle box. Press encrypt to compute the encrypted private key.</source>
         <translation>Gib eine COLX Adresse ein welche mit BIP 38 verschlüsselt werden soll. Gib ein Passwort in die mittleren Box ein. Drücke auf verschlüsseln, um den privaten schlüssel zu errechenen.</translation>
     </message>
     <message>
@@ -247,7 +247,7 @@
         <translation>Adresse:</translation>
     </message>
     <message>
-        <source>The PIVX address to sign the message with</source>
+        <source>The COLX address to sign the message with</source>
         <translation>COLX Adresse mit welcher die Nachricht signiert werden soll</translation>
     </message>
     <message>
@@ -1734,7 +1734,7 @@ Adresse: %4</translation>
         <translation>E&amp;mpfänger:</translation>
     </message>
     <message>
-        <source>The PIVX address to send the payment to</source>
+        <source>The COLX address to send the payment to</source>
         <translation>COLX-Adresse, an die überwiesen werden soll</translation>
     </message>
     <message>
@@ -1816,7 +1816,7 @@ Adresse: %4</translation>
         <translation>Nachricht &amp;signieren</translation>
     </message>
     <message>
-        <source>The PIVX address to sign the message with</source>
+        <source>The COLX address to sign the message with</source>
         <translation>COLX Adresse mit welcher die Nachricht signiert werden soll</translation>
     </message>
     <message>

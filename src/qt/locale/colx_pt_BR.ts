@@ -235,7 +235,7 @@
         <translation>&amp;Encriptação BIP 38</translation>
     </message>
     <message>
-        <source>Enter a Pivx Address that you would like to encrypt using BIP 38. Enter a passphrase in the middle box. Press encrypt to compute the encrypted private key.</source>
+        <source>Enter a Colx Address that you would like to encrypt using BIP 38. Enter a passphrase in the middle box. Press encrypt to compute the encrypted private key.</source>
         <translation>Insira um endereço que você deseja criptografar usando a BIP 38. Insira a palavra-chave na caixa do meio. Pressione criptografar para computar a chave privada criptografada.</translation>
     </message>
     <message>
@@ -243,7 +243,7 @@
         <translation>Endereço:</translation>
     </message>
     <message>
-        <source>The PIVX address to sign the message with</source>
+        <source>The COLX address to sign the message with</source>
         <translation>O endereço COLX para assinar a mensagem</translation>
     </message>
     <message>
@@ -291,7 +291,7 @@
         <translation>Limpar &amp;Tudo</translation>
     </message>
     <message>
-        <source>The PIVX address the message was signed with</source>
+        <source>The COLX address the message was signed with</source>
         <translation>O endereço COLX que assinou a mensagem</translation>
     </message>
     <message>
@@ -2703,7 +2703,7 @@ https://www.transifex.com/colx-project/colx-project-translations</translation>
         <translation>Pagar &amp;Para:</translation>
     </message>
     <message>
-        <source>The PIVX address to send the payment to</source>
+        <source>The COLX address to send the payment to</source>
         <translation>O endereço COLX para enviar o pagamento</translation>
     </message>
     <message>
@@ -2785,7 +2785,7 @@ https://www.transifex.com/colx-project/colx-project-translations</translation>
         <translation>&amp;Assinar mensagem</translation>
     </message>
     <message>
-        <source>The PIVX address to sign the message with</source>
+        <source>The COLX address to sign the message with</source>
         <translation>O endereço COLX para assinar a mensagem</translation>
     </message>
     <message>
@@ -2821,7 +2821,7 @@ https://www.transifex.com/colx-project/colx-project-translations</translation>
         <translation>Assine a mensagem para provar que você possui este endereço COLX</translation>
     </message>
     <message>
-        <source>The PIVX address the message was signed with</source>
+        <source>The COLX address the message was signed with</source>
         <translation>O endereço COLX que assinou a mensagem</translation>
     </message>
     <message>

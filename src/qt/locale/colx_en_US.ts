@@ -239,16 +239,16 @@
         <translation>&amp;BIP 38 Encrypt</translation>
     </message>
     <message>
-        <source>Enter a Pivx Address that you would like to encrypt using BIP 38. Enter a passphrase in the middle box. Press encrypt to compute the encrypted private key.</source>
-        <translation>Enter a Pivx Address that you would like to encrypt using BIP 38. Enter a passphrase in the middle box. Press encrypt to compute the encrypted private key.</translation>
+        <source>Enter a Colx Address that you would like to encrypt using BIP 38. Enter a passphrase in the middle box. Press encrypt to compute the encrypted private key.</source>
+        <translation>Enter a Colx Address that you would like to encrypt using BIP 38. Enter a passphrase in the middle box. Press encrypt to compute the encrypted private key.</translation>
     </message>
     <message>
         <source>Address:</source>
         <translation>Address:</translation>
     </message>
     <message>
-        <source>The PIVX address to sign the message with</source>
-        <translation>The PIVX address to sign the message with</translation>
+        <source>The COLX address to sign the message with</source>
+        <translation>The COLX address to sign the message with</translation>
     </message>
     <message>
         <source>Choose previously used address</source>
@@ -303,8 +303,8 @@
         <translation>Enter the BIP 38 encrypted private key. Enter the passphrase in the middle box. Click Decrypt Key to compute the private key. After the key is decrypted, clicking 'Import Address' will add this private key to the wallet.</translation>
     </message>
     <message>
-        <source>The PIVX address the message was signed with</source>
-        <translation>The PIVX address the message was signed with</translation>
+        <source>The COLX address the message was signed with</source>
+        <translation>The COLX address the message was signed with</translation>
     </message>
     <message>
         <source>Verify the message to ensure it was signed with the specified COLX address</source>
@@ -3059,8 +3059,8 @@ https://www.transifex.com/colx-project/colx-project-translations</translation>
         <translation>Pay &amp;To:</translation>
     </message>
     <message>
-        <source>The PIVX address to send the payment to</source>
-        <translation>The PIVX address to send the payment to</translation>
+        <source>The COLX address to send the payment to</source>
+        <translation>The COLX address to send the payment to</translation>
     </message>
     <message>
         <source>Choose previously used address</source>
@@ -3149,8 +3149,8 @@ https://www.transifex.com/colx-project/colx-project-translations</translation>
         <translation>You can sign messages with your addresses to prove you own them. Be careful not to sign anything vague, as phishing attacks may try to trick you into signing your identity over to them. Only sign fully-detailed statements you agree to.</translation>
     </message>
     <message>
-        <source>The PIVX address to sign the message with</source>
-        <translation>The PIVX address to sign the message with</translation>
+        <source>The COLX address to sign the message with</source>
+        <translation>The COLX address to sign the message with</translation>
     </message>
     <message>
         <source>Choose previously used address</source>
@@ -3185,8 +3185,8 @@ https://www.transifex.com/colx-project/colx-project-translations</translation>
         <translation>Sign the message to prove you own this COLX address</translation>
     </message>
     <message>
-        <source>The PIVX address the message was signed with</source>
-        <translation>The PIVX address the message was signed with</translation>
+        <source>The COLX address the message was signed with</source>
+        <translation>The COLX address the message was signed with</translation>
     </message>
     <message>
         <source>Verify the message to ensure it was signed with the specified COLX address</source>

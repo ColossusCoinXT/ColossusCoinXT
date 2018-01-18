@@ -239,15 +239,15 @@
         <translation>BIP 38 Šifrovanie</translation>
     </message>
     <message>
-        <source>Enter a Pivx Address that you would like to encrypt using BIP 38. Enter a passphrase in the middle box. Press encrypt to compute the encrypted private key.</source>
-        <translation>Zadajte adresu Pivx, ktorú chcete zašifrovať pomocou BIP 38. Zadajte prístupovú frázu do stredného poľa. Stlačte šifrovanie na výpočet šifrovaného privátneho kľúča.</translation>
+        <source>Enter a Colx Address that you would like to encrypt using BIP 38. Enter a passphrase in the middle box. Press encrypt to compute the encrypted private key.</source>
+        <translation>Zadajte adresu Colx, ktorú chcete zašifrovať pomocou BIP 38. Zadajte prístupovú frázu do stredného poľa. Stlačte šifrovanie na výpočet šifrovaného privátneho kľúča.</translation>
     </message>
     <message>
         <source>Address:</source>
         <translation>Adresa:</translation>
     </message>
     <message>
-        <source>The PIVX address to sign the message with</source>
+        <source>The COLX address to sign the message with</source>
         <translation>Adresa COLX, ktorou chcete správu podpísať</translation>
     </message>
     <message>
@@ -303,7 +303,7 @@
         <translation>Zadajte súkromný kľúč zašifrovaný BIP 38. Zadajte prístupovú frázu do stredného poľa. Kliknite na Dešifrovať kľúč, ak chcete vypočítať privátny kľúč. Po dešifrovaní kľúča pridáte do peňaženky tento súkromný kľúč kliknutím na položku 'Importovať adresu'.</translation>
     </message>
     <message>
-        <source>The PIVX address the message was signed with</source>
+        <source>The COLX address the message was signed with</source>
         <translation>COLX adresa, ktorou bola správa podpísaná</translation>
     </message>
     <message>
@@ -1093,7 +1093,7 @@ MultiSend: %1</translation>
 <context>
     <name>SignVerifyMessageDialog</name>
     <message>
-        <source>The PIVX address to sign the message with</source>
+        <source>The COLX address to sign the message with</source>
         <translation>Adresa COLX, ktorou chcete správu podpísať</translation>
     </message>
     <message>
@@ -1121,7 +1121,7 @@ MultiSend: %1</translation>
         <translation>Podpíšte správu, aby ste preukázali, že ste vlastníkom tejto COLX adresy</translation>
     </message>
     <message>
-        <source>The PIVX address the message was signed with</source>
+        <source>The COLX address the message was signed with</source>
         <translation>COLX adresa, ktorou bola správa podpísaná</translation>
     </message>
     <message>

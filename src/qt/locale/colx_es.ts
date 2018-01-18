@@ -239,7 +239,7 @@
         <translation>&amp;Encriptación BIP 38</translation>
     </message>
     <message>
-        <source>Enter a Pivx Address that you would like to encrypt using BIP 38. Enter a passphrase in the middle box. Press encrypt to compute the encrypted private key.</source>
+        <source>Enter a Colx Address that you would like to encrypt using BIP 38. Enter a passphrase in the middle box. Press encrypt to compute the encrypted private key.</source>
         <translation>Introduzca la dirección COLX que querría encriptar usando BIP 38. Introduzca una contraseña en la caja central. Clickee en encriptar para computar la clave privada encriptada.</translation>
     </message>
     <message>
@@ -247,7 +247,7 @@
         <translation>Dirección:</translation>
     </message>
     <message>
-        <source>The PIVX address to sign the message with</source>
+        <source>The COLX address to sign the message with</source>
         <translation>La dirección COLX con la que firmar el mensaje</translation>
     </message>
     <message>
@@ -303,7 +303,7 @@
         <translation>Introducir la clave encriptada privada BIP 38. Introducir la contraseña en la caja central. Pulsar en Desencriptar Clave para computar la clave privada. Después de que la clave sea desencriptada, pulsando en 'Importar Dirección' añadirá esta clave privada a la wallet.</translation>
     </message>
     <message>
-        <source>The PIVX address the message was signed with</source>
+        <source>The COLX address the message was signed with</source>
         <translation>La dirección COLX con la que el mensaje fue firmado</translation>
     </message>
     <message>
@@ -3060,7 +3060,7 @@ https://www.transifex.com/colx-project/colx-project-translations</translation>
         <translation>Pagar &amp;A:</translation>
     </message>
     <message>
-        <source>The PIVX address to send the payment to</source>
+        <source>The COLX address to send the payment to</source>
         <translation>La dirección COLX a la cual enviar el pago</translation>
     </message>
     <message>
@@ -3150,7 +3150,7 @@ https://www.transifex.com/colx-project/colx-project-translations</translation>
         <translation>Usted puede firmar mensajes con su dirección para probar que son auténticos. Tenga cuidado con firmar algo corto o vago como "hola", pues los ataques de phising pueden engañarle para que firme su identidad para ellos. Sólo firme textos detallados con los que esté de acuerdo.</translation>
     </message>
     <message>
-        <source>The PIVX address to sign the message with</source>
+        <source>The COLX address to sign the message with</source>
         <translation>La dirección COLX con la que firmar el mensaje</translation>
     </message>
     <message>
@@ -3186,7 +3186,7 @@ https://www.transifex.com/colx-project/colx-project-translations</translation>
         <translation>Firmar el mensaje para demostrar que eres el propietario de esta dirección COLX</translation>
     </message>
     <message>
-        <source>The PIVX address the message was signed with</source>
+        <source>The COLX address the message was signed with</source>
         <translation>La dirección COLX con la que el mensaje fue firmado</translation>
     </message>
     <message>

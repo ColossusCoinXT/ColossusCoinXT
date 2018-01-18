@@ -235,7 +235,7 @@
         <translation>&amp;BIP 38 Шифрование</translation>
     </message>
     <message>
-        <source>Enter a Pivx Address that you would like to encrypt using BIP 38. Enter a passphrase in the middle box. Press encrypt to compute the encrypted private key.</source>
+        <source>Enter a Colx Address that you would like to encrypt using BIP 38. Enter a passphrase in the middle box. Press encrypt to compute the encrypted private key.</source>
         <translation>Введите COLX адрес, которым вы хотите зашифровать, используя BIP 38. Введите пароль в среднем поле. Нажмите "Зашифровать", чтобы создать зашиврованный секретный ключ.</translation>
     </message>
     <message>
@@ -243,7 +243,7 @@
         <translation>Адрес:</translation>
     </message>
     <message>
-        <source>The PIVX address to sign the message with</source>
+        <source>The COLX address to sign the message with</source>
         <translation>Адрес COLX для подписи сообщения с помощью</translation>
     </message>
     <message>
@@ -299,7 +299,7 @@
         <translation>Введите зашифрованный с помощью BIP 38 секретный ключ. Введите секретную фразу в среднем окне. Нажмите Дешифровать Ключ чтобы создать секретный ключ. Нажав на Импортировать Адрес после дешифровки, вы добавите секретный ключ к кошельку.</translation>
     </message>
     <message>
-        <source>The PIVX address the message was signed with</source>
+        <source>The COLX address the message was signed with</source>
         <translation>Адрес COLX, которым подписано сообщение</translation>
     </message>
     <message>
@@ -2826,7 +2826,7 @@ https://www.transifex.com/colx-project/colx-project-translations</translation>
 <context>
     <name>SignVerifyMessageDialog</name>
     <message>
-        <source>The PIVX address to sign the message with</source>
+        <source>The COLX address to sign the message with</source>
         <translation>Адрес COLX для подписи сообщения с помощью</translation>
     </message>
     <message>
@@ -2854,7 +2854,7 @@ https://www.transifex.com/colx-project/colx-project-translations</translation>
         <translation>Подпишите сообщение, чтобы подтвердить свой адрес COLX</translation>
     </message>
     <message>
-        <source>The PIVX address the message was signed with</source>
+        <source>The COLX address the message was signed with</source>
         <translation>Адрес COLX, которым подписано сообщение</translation>
     </message>
     <message>

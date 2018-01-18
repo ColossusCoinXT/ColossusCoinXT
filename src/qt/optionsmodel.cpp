@@ -75,11 +75,11 @@ void OptionsModel::Init()
     if (!settings.contains("nObfuscationRounds"))
         settings.setValue("nObfuscationRounds", 2);
 
-    if (!settings.contains("nAnonymizePivxAmount"))
-        settings.setValue("nAnonymizePivxAmount", 1000);
+    if (!settings.contains("nAnonymizeColxAmount"))
+        settings.setValue("nAnonymizeColxAmount", 1000);
 
     nObfuscationRounds = settings.value("nObfuscationRounds").toLongLong();
-    nAnonymizePivxAmount = settings.value("nAnonymizePivxAmount").toLongLong();
+    nAnonymizeColxAmount = settings.value("nAnonymizeColxAmount").toLongLong();
 
     if (!settings.contains("fShowMasternodesTab"))
         settings.setValue("fShowMasternodesTab", masternodeConfig.getCount());
@@ -146,8 +146,8 @@ void OptionsModel::Init()
 
     if (settings.contains("nObfuscationRounds"))
         SoftSetArg("-obfuscationrounds", settings.value("nObfuscationRounds").toString().toStdString());
-    if (settings.contains("nAnonymizePivxAmount"))
-        SoftSetArg("-anonymizecolxamount", settings.value("nAnonymizePivxAmount").toString().toStdString());
+    if (settings.contains("nAnonymizeColxAmount"))
+        SoftSetArg("-anonymizecolxamount", settings.value("nAnonymizeColxAmount").toString().toStdString());
 
     language = settings.value("language").toString();
 }
@@ -227,8 +227,8 @@ QVariant OptionsModel::data(const QModelIndex& index, int role) const
             return settings.value("nThreadsScriptVerif");
         case ObfuscationRounds:
             return QVariant(nObfuscationRounds);
-        case AnonymizePivxAmount:
-            return QVariant(nAnonymizePivxAmount);
+        case AnonymizeColxAmount:
+            return QVariant(nAnonymizeColxAmount);
         case Listen:
             return settings.value("fListen");
         default:
@@ -337,10 +337,10 @@ bool OptionsModel::setData(const QModelIndex& index, const QVariant& value, int 
             settings.setValue("nObfuscationRounds", nObfuscationRounds);
             emit obfuscationRoundsChanged(nObfuscationRounds);
             break;
-        case AnonymizePivxAmount:
-            nAnonymizePivxAmount = value.toInt();
-            settings.setValue("nAnonymizePivxAmount", nAnonymizePivxAmount);
-            emit anonymizePivxAmountChanged(nAnonymizePivxAmount);
+        case AnonymizeColxAmount:
+            nAnonymizeColxAmount = value.toInt();
+            settings.setValue("nAnonymizeColxAmount", nAnonymizeColxAmount);
+            emit anonymizeColxAmountChanged(nAnonymizeColxAmount);
             break;
         case CoinControlFeatures:
             fCoinControlFeatures = value.toBool();

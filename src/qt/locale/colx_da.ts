@@ -239,7 +239,7 @@
         <translation>BIP 38 kryptografering</translation>
     </message>
     <message>
-        <source>Enter a Pivx Address that you would like to encrypt using BIP 38. Enter a passphrase in the middle box. Press encrypt to compute the encrypted private key.</source>
+        <source>Enter a Colx Address that you would like to encrypt using BIP 38. Enter a passphrase in the middle box. Press encrypt to compute the encrypted private key.</source>
         <translation>Indtast den COLX adresse De ønsker at kryptografere ved hjælp af BIP 38. Indtast et kodeord i den midterste boks. Klik på krypter for at generere den kryptograferede private nøgle.</translation>
     </message>
     <message>
@@ -247,7 +247,7 @@
         <translation>Adresse</translation>
     </message>
     <message>
-        <source>The PIVX address to sign the message with</source>
+        <source>The COLX address to sign the message with</source>
         <translation>Den COLX adresse, der skal bruges til at underskrive beskeden med.</translation>
     </message>
     <message>
@@ -303,7 +303,7 @@
         <translation>Indtast den krypterede BIP 38 nøgle. Indtast kodeordet i den midterste boks. Klik på dekryptér for at generere den private nøgle. Når nøglen er dekrypteret vil klip på "importér adresse" overføre den private nøgle til tegnebogen.</translation>
     </message>
     <message>
-        <source>The PIVX address the message was signed with</source>
+        <source>The COLX address the message was signed with</source>
         <translation>Beskeden er underskrevet med denne COLX adresse</translation>
     </message>
     <message>
@@ -3026,7 +3026,7 @@ https://www.transifex.com/colx-project/colx-project-translations</translation>
         <translation>Betal &amp;Til</translation>
     </message>
     <message>
-        <source>The PIVX address to send the payment to</source>
+        <source>The COLX address to send the payment to</source>
         <translation>COLX adressen, som betalingen skal sendes til</translation>
     </message>
     <message>
@@ -3116,7 +3116,7 @@ https://www.transifex.com/colx-project/colx-project-translations</translation>
         <translation>De kan underskrive beskeder med Deres adresser or at bevise ejerskab. Vær forsigtig med at underskrive noget De er usikker på såsom forsøg op at narre Dem til at oplyse Deres identitet. Skriv kun under på noget De kan stå inde for, og som De er enig i. </translation>
     </message>
     <message>
-        <source>The PIVX address to sign the message with</source>
+        <source>The COLX address to sign the message with</source>
         <translation>Den COLX adresse, der skal bruges til at underskrive beskeden med.</translation>
     </message>
     <message>
@@ -3152,7 +3152,7 @@ https://www.transifex.com/colx-project/colx-project-translations</translation>
         <translation>Underskriv beskeden for at bevise, at De ejer denne COLX adresse.</translation>
     </message>
     <message>
-        <source>The PIVX address the message was signed with</source>
+        <source>The COLX address the message was signed with</source>
         <translation>Beskeden er underskrevet med denne COLX adresse</translation>
     </message>
     <message>

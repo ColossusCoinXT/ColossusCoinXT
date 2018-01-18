@@ -307,7 +307,7 @@
     </message>
     <message>
         <location line="+6"/>
-        <source>Enter a Pivx Address that you would like to encrypt using BIP 38. Enter a passphrase in the middle box. Press encrypt to compute the encrypted private key.</source>
+        <source>Enter a Colx Address that you would like to encrypt using BIP 38. Enter a passphrase in the middle box. Press encrypt to compute the encrypted private key.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -318,7 +318,7 @@
     </message>
     <message>
         <location line="-355"/>
-        <source>The PIVX address to sign the message with</source>
+        <source>The COLX address to sign the message with</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -391,7 +391,7 @@
     </message>
     <message>
         <location line="+25"/>
-        <source>The PIVX address the message was signed with</source>
+        <source>The COLX address the message was signed with</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -3918,7 +3918,7 @@ https://www.transifex.com/colx-project/colx-project-translations</source>
     </message>
     <message>
         <location line="+18"/>
-        <source>The PIVX address to send the payment to</source>
+        <source>The COLX address to send the payment to</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -4035,7 +4035,7 @@ https://www.transifex.com/colx-project/colx-project-translations</source>
     </message>
     <message>
         <location line="+18"/>
-        <source>The PIVX address to sign the message with</source>
+        <source>The COLX address to sign the message with</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -4082,7 +4082,7 @@ https://www.transifex.com/colx-project/colx-project-translations</source>
     </message>
     <message>
         <location line="+106"/>
-        <source>The PIVX address the message was signed with</source>
+        <source>The COLX address the message was signed with</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

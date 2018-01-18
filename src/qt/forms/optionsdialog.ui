@@ -182,7 +182,7 @@
           </widget>
          </item>
          <item>
-          <widget class="QSpinBox" name="anonymizePivx">
+          <widget class="QSpinBox" name="anonymizeColx">
            <property name="minimum">
             <number>100</number>
            </property>
