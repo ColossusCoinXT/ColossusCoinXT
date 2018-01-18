@@ -7,7 +7,7 @@ architectures:
 packages:
 - "faketime"
 remotes:
-- "url": "https://github.com/colx-project/colx-detached-sigs.git"
+- "url": "https://github.com/ColossusCoinXT/colx-detached-sigs.git"
   "dir": "signature"
 files:
 - "colx-osx-unsigned.tar.gz"

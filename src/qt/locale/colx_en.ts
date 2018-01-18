@@ -2167,7 +2167,7 @@ Please check the address and try again.</source>
     <message>
         <location line="+21"/>
         <source>Language missing or translation incomplete? Help contributing translations here:
-https://www.transifex.com/colx-project/colx-project-translations</source>
+https://www.transifex.com/ColossusCoinXT/ColossusCoinXT-project-translations</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

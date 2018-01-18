@@ -1719,9 +1719,9 @@ Por favor compruebe la dirección e inténtelo de nuevo.</translation>
     </message>
     <message>
         <source>Language missing or translation incomplete? Help contributing translations here:
-https://www.transifex.com/colx-project/colx-project-translations</source>
+https://www.transifex.com/ColossusCoinXT/ColossusCoinXT-project-translations</source>
         <translation>¿Falta su lenguaje o la traducción está incompleta? Contribuya con las traducciones aquí:
-https://www.transifex.com/colx-project/colx-project-translations</translation>
+https://www.transifex.com/ColossusCoinXT/ColossusCoinXT-project-translations</translation>
     </message>
     <message>
         <source>Map port using &amp;UPnP</source>

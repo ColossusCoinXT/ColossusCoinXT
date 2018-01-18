@@ -23,8 +23,8 @@ Build-Depends: debhelper,
  libprotobuf-dev, protobuf-compiler
 Standards-Version: 3.9.2
 Homepage: http://www.colx.org
-Vcs-Git: git://github.com/COLX-Project/COLX.git
-Vcs-Browser: http://github.com/COLX-Project/COLX
+Vcs-Git: git://github.com/ColossusCoinXT/ColossusCoinXT.git
+Vcs-Browser: http://github.com/ColossusCoinXT/ColossusCoinXT
 
 Package: colxd
 Architecture: any
