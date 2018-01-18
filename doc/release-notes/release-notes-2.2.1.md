@@ -118,4 +118,4 @@ Thanks to everyone who directly contributed to this release:
 - Spock
 - presstab
 
-As well as everyone that helped translating on [Transifex](https://www.transifex.com/projects/p/colx-project-translations/).
+As well as everyone that helped translating on [Transifex](https://www.transifex.com/projects/p/ColossusCoinXT-translations/).
