@@ -7,13 +7,10 @@
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 #include "chainparams.h"
-
 #include "random.h"
 #include "util.h"
 #include "utilstrencodings.h"
-
 #include <assert.h>
-
 #include <boost/assign/list_of.hpp>
 
 using namespace std;
@@ -105,7 +102,7 @@ public:
         nMinerThreads = 0;
         nTargetTimespan = 1 * 60; // ZeroNode: 1 minute
         nTargetSpacing = 1 * 60;  // ZeroNode: 1 minute
-        nLastPOWBlock = 525;
+        nLastPOWBlock = 250;
         nMaturity = 30;
         nMasternodeCountDrift = 20;
         nModifierUpdateBlock = 0;
@@ -113,9 +110,9 @@ public:
         nModifierInterval = 60;
         nModifierIntervalRatio = 3;
         nBudgetPercent = 5;
-        nMinStakeAge = 60*60*24*7; //7 days
+        nMinStakeAge = 60*60; //60 minutes
         nMasternodeRewardPercent = 60; // % of block reward that goes to masternodes
-        nRequiredMasternodeCollateral = 10000000 * COIN; //10,000,000
+        nRequiredMasternodeCollateral = 1000 * COIN; //1000
 
         /**
          * Build the genesis block. Note that the output of the genesis coinbase cannot
@@ -174,8 +171,13 @@ public:
         assert(hashGenesisBlock == uint256("0x000006dc5f1106f1897a36b4e95d039c8bcd24cffe5a52c83e49e55e379ed1db"));
         assert(genesis.hashMerkleRoot == uint256("0xa4d2abfb2b21e2bb807e0edb8e0afbadcf0895824a3427b267f9ab06a58e5873"));
 
-//        vSeeds.push_back(CDNSSeedData("presstab", "colxseed.presstab.pw"));
-
+        vSeeds.push_back(CDNSSeedData("seed1", "seed1.zeronode.io"));
+        vSeeds.push_back(CDNSSeedData("seed2", "seed2.zeronode.io"));
+        vSeeds.push_back(CDNSSeedData("seed3", "seed3.zeronode.io"));
+        vSeeds.push_back(CDNSSeedData("seed4", "seed4.zeronode.io"));
+        vSeeds.push_back(CDNSSeedData("seed5", "seed5.zeronode.io"));
+        vSeeds.push_back(CDNSSeedData("seed6", "seed6.zeronode.io"));
+        
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1, 142);
         base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1, 13);
         base58Prefixes[SECRET_KEY] = std::vector<unsigned char>(1, 212);
