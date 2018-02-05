@@ -102,15 +102,15 @@ public:
         nMinerThreads = 0;
         nTargetTimespan = 1 * 60; // ZeroNode: 1 minute
         nTargetSpacing = 1 * 60;  // ZeroNode: 1 minute
-        nLastPOWBlock = 250;
-        nMaturity = 30;
+        nLastPOWBlock = 60;
+        nMaturity = 10;
         nMasternodeCountDrift = 20;
         nModifierUpdateBlock = 0;
         nMaxMoneyOut = int64_t(20000000000) * COIN;
         nModifierInterval = 60;
         nModifierIntervalRatio = 3;
         nBudgetPercent = 5;
-        nMinStakeAge = 60*60; //60 minutes
+        nMinStakeAge = 60*30; //60 minutes
         nMasternodeRewardPercent = 60; // % of block reward that goes to masternodes
         nRequiredMasternodeCollateral = 1000 * COIN; //1000
 
@@ -177,7 +177,7 @@ public:
         vSeeds.push_back(CDNSSeedData("seed4", "seed4.zeronode.io"));
         vSeeds.push_back(CDNSSeedData("seed5", "seed5.zeronode.io"));
         vSeeds.push_back(CDNSSeedData("seed6", "seed6.zeronode.io"));
-        
+
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1, 142);
         base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1, 13);
         base58Prefixes[SECRET_KEY] = std::vector<unsigned char>(1, 212);
