@@ -22,7 +22,7 @@
 #endif
 
 #if defined(HAVE_CONFIG_H)
-#include "config/colx-config.h" /* for USE_QRCODE */
+#include "config/znode-config.h" /* for USE_QRCODE */
 #endif
 
 #ifdef USE_QRCODE

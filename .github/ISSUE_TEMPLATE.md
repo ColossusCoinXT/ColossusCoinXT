@@ -1,7 +1,7 @@
 <!--- Remove this description and sections that do not apply -->
 
-This issue tracker is only for technical issues related to COLX Core.
-General COLX questions and/or support requests and are best directed to the [COLX Slack](http://colx.slack.com).
+This issue tracker is only for technical issues related to ZeroNode Core.
+General znode questions and/or support requests and are best directed to the [ZeroNode discord](https://discord.gg/9MQYHWA).
 
 ### Describe the issue
 

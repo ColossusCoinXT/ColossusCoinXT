@@ -29,10 +29,10 @@
   <string>????</string>
 
   <key>CFBundleExecutable</key>
-  <string>COLX-Qt</string>
+  <string>znode-qt</string>
 
   <key>CFBundleIdentifier</key>
-  <string>io.colx.Pivx-Qt</string>
+  <string>io.znode.Pivx-Qt</string>
 
   <key>CFBundleURLTypes</key>
   <array>
@@ -40,10 +40,10 @@
       <key>CFBundleTypeRole</key>
       <string>Editor</string>
       <key>CFBundleURLName</key>
-      <string>io.colx.PivxPayment</string>
+      <string>io.znode.PivxPayment</string>
       <key>CFBundleURLSchemes</key>
       <array>
-        <string>colx</string>
+        <string>znode</string>
       </array>
     </dict>
   </array>
@@ -52,7 +52,7 @@
   <array>
     <dict>
       <key>UTTypeIdentifier</key>
-      <string>io.colx.paymentrequest</string>
+      <string>io.znode.paymentrequest</string>
       <key>UTTypeDescription</key>
       <string>Pivx payment request</string>
       <key>UTTypeConformsTo</key>
@@ -62,10 +62,10 @@
       <key>UTTypeTagSpecification</key>
       <dict>
         <key>public.mime-type</key>
-        <string>application/x-colx-payment-request</string>
+        <string>application/x-znode-payment-request</string>
         <key>public.filename-extension</key>
         <array>
-          <string>colxpaymentrequest</string>
+          <string>znodepaymentrequest</string>
         </array>
       </dict>
     </dict>
@@ -78,7 +78,7 @@
       <string>Editor</string>
       <key>LSItemContentTypes</key>
       <array>
-        <string>io.colx.paymentrequest</string>
+        <string>io.znode.paymentrequest</string>
       </array>
       <key>LSHandlerRank</key>
       <string>Owner</string>

@@ -32,5 +32,5 @@ CAmount CFeeRate::GetFeePerK() const
 
 std::string CFeeRate::ToString() const
 {
-    return strprintf("%d.%08d COLX/kB", nSatoshisPerK / COIN, nSatoshisPerK % COIN);
+    return strprintf("%d.%08d zNODE/kB", nSatoshisPerK / COIN, nSatoshisPerK % COIN);
 }

@@ -1,32 +1,32 @@
-bin_PROGRAMS += qt/colx-qt
+bin_PROGRAMS += qt/znode-qt
 EXTRA_LIBRARIES += qt/libbitcoinqt.a
 
-# colx qt core #
+# znode qt core #
 QT_TS = \
-  qt/locale/colx_bg.ts \
-  qt/locale/colx_ca.ts \
-  qt/locale/colx_cs.ts \
-  qt/locale/colx_da.ts \
-  qt/locale/colx_de.ts \
-  qt/locale/colx_en.ts \
-  qt/locale/colx_en_US.ts \
-  qt/locale/colx_es.ts \
-  qt/locale/colx_fi.ts \
-  qt/locale/colx_fr_FR.ts \
-  qt/locale/colx_it.ts \
-  qt/locale/colx_ja.ts \
-  qt/locale/colx_ko_KR.ts \
-  qt/locale/colx_nl.ts \
-  qt/locale/colx_pl.ts \
-  qt/locale/colx_pt.ts \
-  qt/locale/colx_pt_BR.ts \
-  qt/locale/colx_ro_RO.ts \
-  qt/locale/colx_ru.ts \
-  qt/locale/colx_sk.ts \
-  qt/locale/colx_sv.ts \
-  qt/locale/colx_uk.ts \
-  qt/locale/colx_zh_CN.ts \
-  qt/locale/colx_zh_TW.ts
+  qt/locale/znode_bg.ts \
+  qt/locale/znode_ca.ts \
+  qt/locale/znode_cs.ts \
+  qt/locale/znode_da.ts \
+  qt/locale/znode_de.ts \
+  qt/locale/znode_en.ts \
+  qt/locale/znode_en_US.ts \
+  qt/locale/znode_es.ts \
+  qt/locale/znode_fi.ts \
+  qt/locale/znode_fr_FR.ts \
+  qt/locale/znode_it.ts \
+  qt/locale/znode_ja.ts \
+  qt/locale/znode_ko_KR.ts \
+  qt/locale/znode_nl.ts \
+  qt/locale/znode_pl.ts \
+  qt/locale/znode_pt.ts \
+  qt/locale/znode_pt_BR.ts \
+  qt/locale/znode_ro_RO.ts \
+  qt/locale/znode_ru.ts \
+  qt/locale/znode_sk.ts \
+  qt/locale/znode_sv.ts \
+  qt/locale/znode_uk.ts \
+  qt/locale/znode_zh_CN.ts \
+  qt/locale/znode_zh_TW.ts
 
 QT_FORMS_UI = \
   qt/forms/addressbookpage.ui \
@@ -106,16 +106,16 @@ BITCOIN_MM = \
   qt/macnotificationhandler.mm
 
 QT_MOC = \
-  qt/colx.moc \
+  qt/znode.moc \
   qt/bitcoinamountfield.moc \
   qt/intro.moc \
   qt/overviewpage.moc \
   qt/rpcconsole.moc
 
-QT_QRC_CPP = qt/qrc_colx.cpp
-QT_QRC = qt/colx.qrc
-QT_QRC_LOCALE_CPP = qt/qrc_colx_locale.cpp
-QT_QRC_LOCALE = qt/colx_locale.qrc
+QT_QRC_CPP = qt/qrc_znode.cpp
+QT_QRC = qt/znode.qrc
+QT_QRC_LOCALE_CPP = qt/qrc_znode_locale.cpp
+QT_QRC_LOCALE = qt/znode_locale.qrc
 
 PROTOBUF_CC = qt/paymentrequest.pb.cc
 PROTOBUF_H = qt/paymentrequest.pb.h
@@ -229,12 +229,12 @@ RES_ICONS = \
   qt/res/icons/tx_input.png \
   qt/res/icons/tx_output.png \
   qt/res/icons/tx_mined.png \
-  qt/res/icons/unit_colx.png \
-  qt/res/icons/unit_mcolx.png \
-  qt/res/icons/unit_ucolx.png \
-  qt/res/icons/unit_tcolx.png \
-  qt/res/icons/unit_tmcolx.png \
-  qt/res/icons/unit_tucolx.png
+  qt/res/icons/unit_znode.png \
+  qt/res/icons/unit_mznode.png \
+  qt/res/icons/unit_uznode.png \
+  qt/res/icons/unit_tznode.png \
+  qt/res/icons/unit_tmznode.png \
+  qt/res/icons/unit_tuznode.png
 
 BITCOIN_QT_CPP = \
   qt/bitcoinaddressvalidator.cpp \
@@ -301,7 +301,7 @@ RES_IMAGES = \
   qt/res/images/about.png \
   qt/res/images/splash.png \
   qt/res/images/splash_testnet.png \
-  qt/res/images/colx_logo_horizontal.png \
+  qt/res/images/znode_logo_horizontal.png \
   qt/res/images/downArrow.png \
   qt/res/images/downArrow_small.png \
   qt/res/images/upArrow_small.png \
@@ -317,7 +317,7 @@ RES_CSS = \
 
 RES_MOVIES = $(wildcard $(srcdir)/qt/res/movies/spinner-*.png)
 
-BITCOIN_RC = qt/res/colx-qt-res.rc
+BITCOIN_RC = qt/res/znode-qt-res.rc
 
 BITCOIN_QT_INCLUDES = -I$(builddir)/qt -I$(srcdir)/qt -I$(srcdir)/qt/forms \
   -I$(builddir)/qt/forms
@@ -337,68 +337,68 @@ QT_FORMS_H=$(join $(dir $(QT_FORMS_UI)),$(addprefix ui_, $(notdir $(QT_FORMS_UI:
 # Most files will depend on the forms and moc files as includes. Generate them
 # before anything else.
 $(QT_MOC): $(QT_FORMS_H)
-$(qt_libbitcoinqt_a_OBJECTS) $(qt_colx_qt_OBJECTS) : | $(QT_MOC)
+$(qt_libbitcoinqt_a_OBJECTS) $(qt_znode_qt_OBJECTS) : | $(QT_MOC)
 
 #Generating these with a half-written protobuf header leads to wacky results.
 #This makes sure it's done.
 $(QT_MOC): $(PROTOBUF_H)
 $(QT_MOC_CPP): $(PROTOBUF_H)
 
-# colx-qt binary #
-qt_colx_qt_CPPFLAGS = $(BITCOIN_INCLUDES) $(BITCOIN_QT_INCLUDES) \
+# znode-qt binary #
+qt_znode_qt_CPPFLAGS = $(BITCOIN_INCLUDES) $(BITCOIN_QT_INCLUDES) \
   $(QT_INCLUDES) $(PROTOBUF_CFLAGS) $(QR_CFLAGS)
 
-qt_colx_qt_SOURCES = qt/colx.cpp
+qt_znode_qt_SOURCES = qt/znode.cpp
 if TARGET_DARWIN
-  qt_colx_qt_SOURCES += $(BITCOIN_MM)
+  qt_znode_qt_SOURCES += $(BITCOIN_MM)
 endif
 if TARGET_WINDOWS
-  qt_colx_qt_SOURCES += $(BITCOIN_RC)
+  qt_znode_qt_SOURCES += $(BITCOIN_RC)
 endif
-qt_colx_qt_LDADD = qt/libbitcoinqt.a $(LIBBITCOIN_SERVER)
+qt_znode_qt_LDADD = qt/libbitcoinqt.a $(LIBBITCOIN_SERVER)
 if ENABLE_WALLET
-qt_colx_qt_LDADD += $(LIBBITCOIN_WALLET)
+qt_znode_qt_LDADD += $(LIBBITCOIN_WALLET)
 endif
 if ENABLE_ZMQ
-qt_colx_qt_LDADD += $(LIBBITCOIN_ZMQ) $(ZMQ_LIBS)
+qt_znode_qt_LDADD += $(LIBBITCOIN_ZMQ) $(ZMQ_LIBS)
 endif
-qt_colx_qt_LDADD += $(LIBBITCOIN_CLI) $(LIBBITCOIN_COMMON) $(LIBBITCOIN_UTIL) $(LIBBITCOIN_CRYPTO) $(LIBBITCOIN_UNIVALUE) $(LIBLEVELDB) $(LIBMEMENV) \
+qt_znode_qt_LDADD += $(LIBBITCOIN_CLI) $(LIBBITCOIN_COMMON) $(LIBBITCOIN_UTIL) $(LIBBITCOIN_CRYPTO) $(LIBBITCOIN_UNIVALUE) $(LIBLEVELDB) $(LIBMEMENV) \
   $(BOOST_LIBS) $(QT_LIBS) $(QT_DBUS_LIBS) $(QR_LIBS) $(PROTOBUF_LIBS) $(BDB_LIBS) $(SSL_LIBS) $(CRYPTO_LIBS) $(MINIUPNPC_LIBS) $(LIBSECP256K1)
-qt_colx_qt_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(QT_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
-qt_colx_qt_LIBTOOLFLAGS = --tag CXX
+qt_znode_qt_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(QT_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
+qt_znode_qt_LIBTOOLFLAGS = --tag CXX
 
 #locale/foo.ts -> locale/foo.qm
 QT_QM=$(QT_TS:.ts=.qm)
 
 .SECONDARY: $(QT_QM)
 
-qt/colxstrings.cpp: $(libbitcoin_server_a_SOURCES) $(libbitcoin_wallet_a_SOURCES) $(libbitcoin_common_a_SOURCES)
+qt/znodestrings.cpp: $(libbitcoin_server_a_SOURCES) $(libbitcoin_wallet_a_SOURCES) $(libbitcoin_common_a_SOURCES)
 	@test -n $(XGETTEXT) || echo "xgettext is required for updating translations"
 	$(AM_V_GEN) cd $(srcdir); XGETTEXT=$(XGETTEXT) $(PYTHON) ../share/qt/extract_strings_qt.py $^
 
-translate: qt/colxstrings.cpp $(QT_FORMS_UI) $(QT_FORMS_UI) $(BITCOIN_QT_CPP) $(BITCOIN_QT_H) $(BITCOIN_MM)
+translate: qt/znodestrings.cpp $(QT_FORMS_UI) $(QT_FORMS_UI) $(BITCOIN_QT_CPP) $(BITCOIN_QT_H) $(BITCOIN_MM)
 	@test -n $(LUPDATE) || echo "lupdate is required for updating translations"
-	$(AM_V_GEN) QT_SELECT=$(QT_SELECT) $(LUPDATE) $^ -locations relative -no-obsolete -ts qt/locale/colx_en.ts
+	$(AM_V_GEN) QT_SELECT=$(QT_SELECT) $(LUPDATE) $^ -locations relative -no-obsolete -ts qt/locale/znode_en.ts
 
 $(QT_QRC_LOCALE_CPP): $(QT_QRC_LOCALE) $(QT_QM)
 	@test -f $(RCC)
 	@test -f $(@D)/$(<F) || cp -f $< $(@D)
-	$(AM_V_GEN) QT_SELECT=$(QT_SELECT) $(RCC) -name colx_locale $(@D)/$(<F) | \
+	$(AM_V_GEN) QT_SELECT=$(QT_SELECT) $(RCC) -name znode_locale $(@D)/$(<F) | \
 	  $(SED) -e '/^\*\*.*Created:/d' -e '/^\*\*.*by:/d' > $@
 
 $(QT_QRC_CPP): $(QT_QRC) $(QT_FORMS_H) $(RES_ICONS) $(RES_IMAGES) $(RES_CSS) $(RES_MOVIES) $(PROTOBUF_H)
 	@test -f $(RCC)
-	$(AM_V_GEN) QT_SELECT=$(QT_SELECT) $(RCC) -name colx $< | \
+	$(AM_V_GEN) QT_SELECT=$(QT_SELECT) $(RCC) -name znode $< | \
 	  $(SED) -e '/^\*\*.*Created:/d' -e '/^\*\*.*by:/d' > $@
 
 CLEAN_QT = $(nodist_qt_libbitcoinqt_a_SOURCES) $(QT_QM) $(QT_FORMS_H) qt/*.gcda qt/*.gcno
 
 CLEANFILES += $(CLEAN_QT)
 
-colx_qt_clean: FORCE
-	rm -f $(CLEAN_QT) $(qt_libbitcoinqt_a_OBJECTS) $(qt_colx_qt_OBJECTS) qt/colx-qt$(EXEEXT) $(LIBBITCOINQT)
+znode_qt_clean: FORCE
+	rm -f $(CLEAN_QT) $(qt_libbitcoinqt_a_OBJECTS) $(qt_znode_qt_OBJECTS) qt/znode-qt$(EXEEXT) $(LIBBITCOINQT)
 
-colx_qt : qt/colx-qt$(EXEEXT)
+znode_qt : qt/znode-qt$(EXEEXT)
 
 ui_%.h: %.ui
 	@test -f $(UIC)

@@ -41,7 +41,7 @@ using namespace boost;
 using namespace std;
 
 #if defined(NDEBUG)
-#error "COLX cannot be compiled without assertions."
+#error "zNODE cannot be compiled without assertions."
 #endif
 
 /**
@@ -1613,11 +1613,11 @@ double ConvertBitsToDouble(unsigned int nBits)
 int64_t GetBlockValue(int nHeight, CAmount nFees, bool fBudgetBlock)
 {
     /**
-     * Block 1: 12 Billions COLX pre-mined
+     * Block 1: 12 Billions zNODE pre-mined
      Block Reward:
-     Blocks 2 - 151,200 - 2500 COLX
-     Blocks 151,201 - 302,399 - 1250 COLX
-     Blocks 302,400 - Infinite:  1000 COLX
+     Blocks 2 - 151,200 - 2500 zNODE
+     Blocks 151,201 - 302,399 - 1250 zNODE
+     Blocks 302,400 - Infinite:  1000 zNODE
      Proof of Stake Schedule - 5% to proposals for all phases
      95% distributed to stake wallet and master node
      */
@@ -1625,16 +1625,1512 @@ int64_t GetBlockValue(int nHeight, CAmount nFees, bool fBudgetBlock)
     int64_t nBudgetMultiplier = COIN;
     if (!fBudgetBlock)
         nBudgetMultiplier = COIN - (Params().GetBudgetPercent() * CENT);
-    LogPrintf("%s budget multiplier %s\n", __func__, FormatMoney(nBudgetMultiplier));
 
-    CAmount nSubsidy = 1000 * nBudgetMultiplier;
+    CAmount nSubsidy = ((50 * COIN) * nBudgetMultiplier);
+    
     if (nHeight == 1)
-        nSubsidy = CAmount(12000000000) * COIN; //premine has no budget allocation
-    else if (nHeight < 151201)
-        nSubsidy = 2500 * nBudgetMultiplier;
-    else if (nHeight < 302400)
-        nSubsidy = 1250 * nBudgetMultiplier;
+        nSubsidy = CAmount(10000000) * COIN; //premine has no budget allocation
+    
+    else if (nHeight < 1250)                 // 0.875 days
+        nSubsidy = 150.0 * nBudgetMultiplier;
+    
+    else if (nHeight < 2500)                 // 1.75 days
+        nSubsidy = 175.0 * nBudgetMultiplier;
+    
+    else if (nHeight < 5040)                 // 3.5 days
+        nSubsidy = 200.0 * nBudgetMultiplier;
+    
+    else if (nHeight < 75060)                // 5 days
+        nSubsidy = 225.0 * nbudgetMultiplier;  
+    
+    else if (nHeight < 10080)                // 1 week
+        nSubsidy = 275.0 * nBudgetMultiplier;
+    
+    else if (nHeight < 40320)                // 4 weeks
+        nSubsidy = 250.0 * nBudgetMultiplier;
+    
+    else if (nHeight < 60480)                // 6 weeks
+        nSubsidy = 200.0 * nBudgetMultiplier;
+    
+    else if (nHeight < 80640)                // 8 weeks
+        nSubsidy = 175.0 * nbudgetMultiplier;
+    
+    else if (nHeight < 120960)               // 12 weeks / 3 months
+        nSubsidy = 160.0 * nBudgetMultiplier;
+    
+    else if (nHeight < 131040)               // 13 weeks -- every week from here on, 0.5ZNODE drop in inflation, for x years
+        nSubsidy = 159.5 * nBudgetMultiplier;
 
+    else if (nHeight < 141120)
+        nSubsidy = 159.0 * nBudgetMultiplier;
+
+    else if (nHeight < 151200)
+        nSubsidy = 158.5 * nBudgetMultiplier;
+
+    else if (nHeight < 161280)
+        nSubsidy = 158.0 * nBudgetMultiplier;
+
+    else if (nHeight < 171360)
+        nSubsidy = 157.5 * nBudgetMultiplier;
+
+    else if (nHeight < 181440)
+        nSubsidy = 157.0 * nBudgetMultiplier;
+
+    else if (nHeight < 191520)
+        nSubsidy = 156.5 * nBudgetMultiplier;
+
+    else if (nHeight < 201600)
+        nSubsidy = 156.0 * nBudgetMultiplier;
+
+    else if (nHeight < 211680)
+        nSubsidy = 155.5 * nBudgetMultiplier;
+
+    else if (nHeight < 221760)
+        nSubsidy = 155.0 * nBudgetMultiplier;
+
+    else if (nHeight < 231840)
+        nSubsidy = 154.5 * nBudgetMultiplier;
+
+    else if (nHeight < 241920)
+        nSubsidy = 154.0 * nBudgetMultiplier;
+
+    else if (nHeight < 252000)
+        nSubsidy = 153.5 * nBudgetMultiplier;
+
+    else if (nHeight < 262080)
+        nSubsidy = 153.0 * nBudgetMultiplier;
+
+    else if (nHeight < 272160)
+        nSubsidy = 152.5 * nBudgetMultiplier;
+
+    else if (nHeight < 282240)
+        nSubsidy = 152.0 * nBudgetMultiplier;
+
+    else if (nHeight < 292320)
+        nSubsidy = 151.5 * nBudgetMultiplier;
+
+    else if (nHeight < 302400)
+        nSubsidy = 151.0 * nBudgetMultiplier;
+
+    else if (nHeight < 312480)
+        nSubsidy = 150.5 * nBudgetMultiplier;
+
+    else if (nHeight < 322560)
+        nSubsidy = 150.0 * nBudgetMultiplier;
+
+    else if (nHeight < 332640)
+        nSubsidy = 149.5 * nBudgetMultiplier;
+
+    else if (nHeight < 342720)
+        nSubsidy = 149.0 * nBudgetMultiplier;
+
+    else if (nHeight < 352800)
+        nSubsidy = 148.5 * nBudgetMultiplier;
+
+    else if (nHeight < 362880)
+        nSubsidy = 148.0 * nBudgetMultiplier;
+
+    else if (nHeight < 372960)
+        nSubsidy = 147.5 * nBudgetMultiplier;
+
+    else if (nHeight < 383040)
+        nSubsidy = 147.0 * nBudgetMultiplier;
+
+    else if (nHeight < 393120)
+        nSubsidy = 146.5 * nBudgetMultiplier;
+
+    else if (nHeight < 403200)
+        nSubsidy = 146.0 * nBudgetMultiplier;
+
+    else if (nHeight < 413280)
+        nSubsidy = 145.5 * nBudgetMultiplier;
+
+    else if (nHeight < 423360)
+        nSubsidy = 145.0 * nBudgetMultiplier;
+
+    else if (nHeight < 433440)
+        nSubsidy = 144.5 * nBudgetMultiplier;
+
+    else if (nHeight < 443520)
+        nSubsidy = 144.0 * nBudgetMultiplier;
+
+    else if (nHeight < 453600)
+        nSubsidy = 143.5 * nBudgetMultiplier;
+
+    else if (nHeight < 463680)
+        nSubsidy = 143.0 * nBudgetMultiplier;
+
+    else if (nHeight < 473760)
+        nSubsidy = 142.5 * nBudgetMultiplier;
+
+    else if (nHeight < 483840)
+        nSubsidy = 142.0 * nBudgetMultiplier;
+
+    else if (nHeight < 493920)
+        nSubsidy = 141.5 * nBudgetMultiplier;
+
+    else if (nHeight < 504000)
+        nSubsidy = 141.0 * nBudgetMultiplier;
+
+    else if (nHeight < 514080)
+        nSubsidy = 140.5 * nBudgetMultiplier;
+
+    else if (nHeight < 524160)
+        nSubsidy = 140.0 * nBudgetMultiplier;
+
+    else if (nHeight < 534240)
+        nSubsidy = 139.5 * nBudgetMultiplier;
+
+    else if (nHeight < 544320)
+        nSubsidy = 139.0 * nBudgetMultiplier;
+
+    else if (nHeight < 554400)
+        nSubsidy = 138.5 * nBudgetMultiplier;
+
+    else if (nHeight < 564480)
+        nSubsidy = 138.0 * nBudgetMultiplier;
+
+    else if (nHeight < 574560)
+        nSubsidy = 137.5 * nBudgetMultiplier;
+
+    else if (nHeight < 584640)
+        nSubsidy = 137.0 * nBudgetMultiplier;
+
+    else if (nHeight < 594720)
+        nSubsidy = 136.5 * nBudgetMultiplier;
+
+    else if (nHeight < 604800)
+        nSubsidy = 136.0 * nBudgetMultiplier;
+
+    else if (nHeight < 614880)
+        nSubsidy = 135.5 * nBudgetMultiplier;
+
+    else if (nHeight < 624960)
+        nSubsidy = 135.0 * nBudgetMultiplier;
+
+    else if (nHeight < 635040)
+        nSubsidy = 134.5 * nBudgetMultiplier;
+
+    else if (nHeight < 645120)
+        nSubsidy = 134.0 * nBudgetMultiplier;
+    
+    else if (nHeight < 645120)
+        nSubsidy = 133.75 * nBudgetMultiplier;
+
+    else if (nHeight < 655200)
+        nSubsidy = 133.5 * nBudgetMultiplier;
+
+    else if (nHeight < 665280)
+        nSubsidy = 133.25 * nBudgetMultiplier;
+
+    else if (nHeight < 675360)
+        nSubsidy = 133.0 * nBudgetMultiplier;
+
+    else if (nHeight < 685440)
+        nSubsidy = 132.75 * nBudgetMultiplier;
+
+    else if (nHeight < 695520)
+        nSubsidy = 132.5 * nBudgetMultiplier;
+
+    else if (nHeight < 705600)
+        nSubsidy = 132.25 * nBudgetMultiplier;
+
+    else if (nHeight < 715680)
+        nSubsidy = 132.0 * nBudgetMultiplier;
+
+    else if (nHeight < 725760)
+        nSubsidy = 131.75 * nBudgetMultiplier;
+
+    else if (nHeight < 735840)
+        nSubsidy = 131.5 * nBudgetMultiplier;
+
+    else if (nHeight < 745920)
+        nSubsidy = 131.25 * nBudgetMultiplier;
+
+    else if (nHeight < 756000)
+        nSubsidy = 131.0 * nBudgetMultiplier;
+
+    else if (nHeight < 766080)
+        nSubsidy = 130.75 * nBudgetMultiplier;
+
+    else if (nHeight < 776160)
+        nSubsidy = 130.5 * nBudgetMultiplier;
+
+    else if (nHeight < 786240)
+        nSubsidy = 130.25 * nBudgetMultiplier;
+
+    else if (nHeight < 796320)
+        nSubsidy = 130.0 * nBudgetMultiplier;
+
+    else if (nHeight < 806400)
+        nSubsidy = 129.75 * nBudgetMultiplier;
+
+    else if (nHeight < 816480)
+        nSubsidy = 129.5 * nBudgetMultiplier;
+
+    else if (nHeight < 826560)
+        nSubsidy = 129.25 * nBudgetMultiplier;
+
+    else if (nHeight < 836640)
+        nSubsidy = 129.0 * nBudgetMultiplier;
+
+    else if (nHeight < 846720)
+        nSubsidy = 128.75 * nBudgetMultiplier;
+
+    else if (nHeight < 856800)
+        nSubsidy = 128.5 * nBudgetMultiplier;
+
+    else if (nHeight < 866880)
+        nSubsidy = 128.25 * nBudgetMultiplier;
+
+    else if (nHeight < 876960)
+        nSubsidy = 128.0 * nBudgetMultiplier;
+
+    else if (nHeight < 887040)
+        nSubsidy = 127.75 * nBudgetMultiplier;
+
+    else if (nHeight < 897120)
+        nSubsidy = 127.5 * nBudgetMultiplier;
+
+    else if (nHeight < 907200)
+        nSubsidy = 127.25 * nBudgetMultiplier;
+
+    else if (nHeight < 917280)
+        nSubsidy = 127.0 * nBudgetMultiplier;
+
+    else if (nHeight < 927360)
+        nSubsidy = 126.75 * nBudgetMultiplier;
+
+    else if (nHeight < 937440)
+        nSubsidy = 126.5 * nBudgetMultiplier;
+
+    else if (nHeight < 947520)
+        nSubsidy = 126.25 * nBudgetMultiplier;
+
+    else if (nHeight < 957600)
+        nSubsidy = 126.0 * nBudgetMultiplier;
+
+    else if (nHeight < 967680)
+        nSubsidy = 125.75 * nBudgetMultiplier;
+
+    else if (nHeight < 977760)
+        nSubsidy = 125.5 * nBudgetMultiplier;
+
+    else if (nHeight < 987840)
+        nSubsidy = 125.25 * nBudgetMultiplier;
+
+    else if (nHeight < 997920)
+        nSubsidy = 125.0 * nBudgetMultiplier;
+
+    else if (nHeight < 1008000)
+        nSubsidy = 124.75 * nBudgetMultiplier;
+
+    else if (nHeight < 1018080)
+        nSubsidy = 124.5 * nBudgetMultiplier;
+
+    else if (nHeight < 1028160)
+        nSubsidy = 124.25 * nBudgetMultiplier;
+
+    else if (nHeight < 1038240)
+        nSubsidy = 124.0 * nBudgetMultiplier;
+
+    else if (nHeight < 1048320)
+        nSubsidy = 123.75 * nBudgetMultiplier;
+
+    else if (nHeight < 1058400)
+        nSubsidy = 123.5 * nBudgetMultiplier;
+
+    else if (nHeight < 1068480)
+        nSubsidy = 123.25 * nBudgetMultiplier;
+
+    else if (nHeight < 1078560)
+        nSubsidy = 123.0 * nBudgetMultiplier;
+
+    else if (nHeight < 1088640)
+        nSubsidy = 122.75 * nBudgetMultiplier;
+
+    else if (nHeight < 1098720)
+        nSubsidy = 122.5 * nBudgetMultiplier;
+
+    else if (nHeight < 1108800)
+        nSubsidy = 122.25 * nBudgetMultiplier;
+
+    else if (nHeight < 1118880)
+        nSubsidy = 122.0 * nBudgetMultiplier;
+
+    else if (nHeight < 1128960)
+        nSubsidy = 121.75 * nBudgetMultiplier;
+
+    else if (nHeight < 1139040)
+        nSubsidy = 121.5 * nBudgetMultiplier;
+
+    else if (nHeight < 1149120)
+        nSubsidy = 121.25 * nBudgetMultiplier;
+
+    else if (nHeight < 1159200)
+        nSubsidy = 121.0 * nBudgetMultiplier;
+    
+    else if (nHeight < 1179360)
+        nSubsidy = 120.5 * nBudgetMultiplier;
+
+    else if (nHeight < 1199520)
+        nSubsidy = 120.25 * nBudgetMultiplier;
+
+    else if (nHeight < 1219680)
+        nSubsidy = 120.0 * nBudgetMultiplier;
+
+    else if (nHeight < 1239840)
+        nSubsidy = 119.75 * nBudgetMultiplier;
+
+    else if (nHeight < 1260000)
+        nSubsidy = 119.5 * nBudgetMultiplier;
+
+    else if (nHeight < 1280160)
+        nSubsidy = 119.25 * nBudgetMultiplier;
+
+    else if (nHeight < 1300320)
+        nSubsidy = 119.0 * nBudgetMultiplier;
+
+    else if (nHeight < 1320480)
+        nSubsidy = 118.75 * nBudgetMultiplier;
+
+    else if (nHeight < 1340640)
+        nSubsidy = 118.5 * nBudgetMultiplier;
+
+    else if (nHeight < 1360800)
+        nSubsidy = 118.25 * nBudgetMultiplier;
+
+    else if (nHeight < 1380960)
+        nSubsidy = 118.0 * nBudgetMultiplier;
+
+    else if (nHeight < 1401120)
+        nSubsidy = 117.75 * nBudgetMultiplier;
+
+    else if (nHeight < 1421280)
+        nSubsidy = 117.5 * nBudgetMultiplier;
+
+    else if (nHeight < 1441440)
+        nSubsidy = 117.25 * nBudgetMultiplier;
+
+    else if (nHeight < 1461600)
+        nSubsidy = 117.0 * nBudgetMultiplier;
+
+    else if (nHeight < 1481760)
+        nSubsidy = 116.75 * nBudgetMultiplier;
+
+    else if (nHeight < 1501920)
+        nSubsidy = 116.5 * nBudgetMultiplier;
+
+    else if (nHeight < 1522080)
+        nSubsidy = 116.25 * nBudgetMultiplier;
+
+    else if (nHeight < 1542240)
+        nSubsidy = 116.0 * nBudgetMultiplier;
+
+    else if (nHeight < 1562400)
+        nSubsidy = 115.75 * nBudgetMultiplier;
+
+    else if (nHeight < 1582560)
+        nSubsidy = 115.5 * nBudgetMultiplier;
+
+    else if (nHeight < 1602720)
+        nSubsidy = 115.25 * nBudgetMultiplier;
+
+    else if (nHeight < 1622880)
+        nSubsidy = 115.0 * nBudgetMultiplier;
+
+    else if (nHeight < 1643040)
+        nSubsidy = 114.75 * nBudgetMultiplier;
+
+    else if (nHeight < 1663200)
+        nSubsidy = 114.5 * nBudgetMultiplier;
+
+    else if (nHeight < 1683360)
+        nSubsidy = 114.25 * nBudgetMultiplier;
+
+    else if (nHeight < 1703520)
+        nSubsidy = 114.0 * nBudgetMultiplier;
+
+    else if (nHeight < 1723680)
+        nSubsidy = 113.75 * nBudgetMultiplier;
+
+    else if (nHeight < 1743840)
+        nSubsidy = 113.5 * nBudgetMultiplier;
+
+    else if (nHeight < 1764000)
+        nSubsidy = 113.25 * nBudgetMultiplier;
+
+    else if (nHeight < 1784160)
+        nSubsidy = 113.0 * nBudgetMultiplier;
+
+    else if (nHeight < 1804320)
+        nSubsidy = 112.75 * nBudgetMultiplier;
+
+    else if (nHeight < 1824480)
+        nSubsidy = 112.5 * nBudgetMultiplier;
+
+    else if (nHeight < 1844640)
+        nSubsidy = 112.25 * nBudgetMultiplier;
+
+    else if (nHeight < 1864800)
+        nSubsidy = 112.0 * nBudgetMultiplier;
+
+    else if (nHeight < 1884960)
+        nSubsidy = 111.75 * nBudgetMultiplier;
+
+    else if (nHeight < 1905120)
+        nSubsidy = 111.5 * nBudgetMultiplier;
+
+    else if (nHeight < 1925280)
+        nSubsidy = 111.25 * nBudgetMultiplier;
+
+    else if (nHeight < 1945440)
+        nSubsidy = 111.0 * nBudgetMultiplier;
+
+    else if (nHeight < 1965600)
+        nSubsidy = 110.75 * nBudgetMultiplier;
+
+    else if (nHeight < 1985760)
+        nSubsidy = 110.5 * nBudgetMultiplier;
+
+    else if (nHeight < 2005920)
+        nSubsidy = 110.25 * nBudgetMultiplier;
+
+    else if (nHeight < 2026080)
+        nSubsidy = 110.0 * nBudgetMultiplier;
+
+    else if (nHeight < 2046240)
+        nSubsidy = 109.75 * nBudgetMultiplier;
+
+    else if (nHeight < 2066400)
+        nSubsidy = 109.5 * nBudgetMultiplier;
+
+    else if (nHeight < 2086560)
+        nSubsidy = 109.25 * nBudgetMultiplier;
+
+    else if (nHeight < 2106720)
+        nSubsidy = 109.0 * nBudgetMultiplier;
+
+    else if (nHeight < 2126880)
+        nSubsidy = 108.75 * nBudgetMultiplier;
+
+    else if (nHeight < 2147040)
+        nSubsidy = 108.5 * nBudgetMultiplier;
+
+    else if (nHeight < 2167200)
+        nSubsidy = 108.25 * nBudgetMultiplier;
+
+    else if (nHeight < 2187360)
+        nSubsidy = 108.0 * nBudgetMultiplier;
+
+    else if (nHeight < 2207520)
+        nSubsidy = 107.75 * nBudgetMultiplier;
+
+    else if (nHeight < 2227680)
+        nSubsidy = 107.5 * nBudgetMultiplier;
+
+    else if (nHeight < 2247840)
+        nSubsidy = 107.25 * nBudgetMultiplier;
+
+    else if (nHeight < 2268000)
+        nSubsidy = 107.0 * nBudgetMultiplier;
+
+    else if (nHeight < 2288160)
+        nSubsidy = 106.75 * nBudgetMultiplier;
+
+    else if (nHeight < 2308320)
+        nSubsidy = 106.5 * nBudgetMultiplier;
+
+    else if (nHeight < 2328480)
+        nSubsidy = 106.25 * nBudgetMultiplier;
+
+    else if (nHeight < 2348640)
+        nSubsidy = 106.0 * nBudgetMultiplier;
+
+    else if (nHeight < 2368800)
+        nSubsidy = 105.75 * nBudgetMultiplier;
+
+    else if (nHeight < 2388960)
+        nSubsidy = 105.5 * nBudgetMultiplier;
+
+    else if (nHeight < 2409120)
+        nSubsidy = 105.25 * nBudgetMultiplier;
+
+    else if (nHeight < 2429280)
+        nSubsidy = 105.0 * nBudgetMultiplier;
+
+    else if (nHeight < 2449440)
+        nSubsidy = 104.75 * nBudgetMultiplier;
+
+    else if (nHeight < 2469600)
+        nSubsidy = 104.5 * nBudgetMultiplier;
+
+    else if (nHeight < 2489760)
+        nSubsidy = 104.25 * nBudgetMultiplier;
+
+    else if (nHeight < 2509920)
+        nSubsidy = 104.0 * nBudgetMultiplier;
+
+    else if (nHeight < 2530080)
+        nSubsidy = 103.75 * nBudgetMultiplier;
+
+    else if (nHeight < 2550240)
+        nSubsidy = 103.5 * nBudgetMultiplier;
+
+    else if (nHeight < 2570400)
+        nSubsidy = 103.25 * nBudgetMultiplier;
+
+    else if (nHeight < 2590560)
+        nSubsidy = 103.0 * nBudgetMultiplier;
+
+    else if (nHeight < 2610720)
+        nSubsidy = 102.75 * nBudgetMultiplier;
+
+    else if (nHeight < 2630880)
+        nSubsidy = 102.5 * nBudgetMultiplier;
+
+    else if (nHeight < 2651040)
+        nSubsidy = 102.25 * nBudgetMultiplier;
+
+    else if (nHeight < 2671200)
+        nSubsidy = 102.0 * nBudgetMultiplier;
+
+    else if (nHeight < 2691360)
+        nSubsidy = 101.75 * nBudgetMultiplier;
+
+    else if (nHeight < 2711520)
+        nSubsidy = 101.5 * nBudgetMultiplier;
+
+    else if (nHeight < 2731680)
+        nSubsidy = 101.25 * nBudgetMultiplier;
+
+    else if (nHeight < 2751840)
+        nSubsidy = 101.0 * nBudgetMultiplier;
+
+    else if (nHeight < 2772000)
+        nSubsidy = 100.75 * nBudgetMultiplier;
+
+    else if (nHeight < 2792160)
+        nSubsidy = 100.5 * nBudgetMultiplier;
+
+    else if (nHeight < 2812320)
+        nSubsidy = 100.25 * nBudgetMultiplier;
+
+    else if (nHeight < 2832480)
+        nSubsidy = 100.0 * nBudgetMultiplier;
+
+    else if (nHeight < 2852640)
+        nSubsidy = 99.75 * nBudgetMultiplier;
+
+    else if (nHeight < 2872800)
+        nSubsidy = 99.5 * nBudgetMultiplier;
+
+    else if (nHeight < 2892960)
+        nSubsidy = 99.25 * nBudgetMultiplier;
+
+    else if (nHeight < 2913120)
+        nSubsidy = 99.0 * nBudgetMultiplier;
+
+    else if (nHeight < 2933280)
+        nSubsidy = 98.75 * nBudgetMultiplier;
+
+    else if (nHeight < 2953440)
+        nSubsidy = 98.5 * nBudgetMultiplier;
+
+    else if (nHeight < 2973600)
+        nSubsidy = 98.25 * nBudgetMultiplier;
+
+    else if (nHeight < 2993760)
+        nSubsidy = 98.0 * nBudgetMultiplier;
+
+    else if (nHeight < 3013920)
+        nSubsidy = 97.75 * nBudgetMultiplier;
+
+    else if (nHeight < 3034080)
+        nSubsidy = 97.5 * nBudgetMultiplier;
+
+    else if (nHeight < 3054240)
+        nSubsidy = 97.25 * nBudgetMultiplier;
+
+    else if (nHeight < 3074400)
+        nSubsidy = 97.0 * nBudgetMultiplier;
+
+    else if (nHeight < 3094560)
+        nSubsidy = 96.75 * nBudgetMultiplier;
+
+    else if (nHeight < 3114720)
+        nSubsidy = 96.5 * nBudgetMultiplier;
+
+    else if (nHeight < 3134880)
+        nSubsidy = 96.25 * nBudgetMultiplier;
+
+    else if (nHeight < 3155040)
+        nSubsidy = 96.0 * nBudgetMultiplier;
+
+    else if (nHeight < 3175200)
+        nSubsidy = 95.75 * nBudgetMultiplier;
+
+    else if (nHeight < 3195360)
+        nSubsidy = 95.5 * nBudgetMultiplier;
+
+    else if (nHeight < 3215520)
+        nSubsidy = 95.25 * nBudgetMultiplier;
+
+    else if (nHeight < 3235680)
+        nSubsidy = 95.0 * nBudgetMultiplier;
+    
+    else if (nHeight < 3235680)
+    nSubsidy = 120.75 * nBudgetMultiplier;
+
+    else if (nHeight < 3276000)
+        nSubsidy = 120.5 * nBudgetMultiplier;
+
+    else if (nHeight < 3316320)
+        nSubsidy = 120.25 * nBudgetMultiplier;
+
+    else if (nHeight < 3356640)
+        nSubsidy = 120.0 * nBudgetMultiplier;
+
+    else if (nHeight < 3396960)
+        nSubsidy = 119.75 * nBudgetMultiplier;
+
+    else if (nHeight < 3437280)
+        nSubsidy = 119.5 * nBudgetMultiplier;
+
+    else if (nHeight < 3477600)
+        nSubsidy = 119.25 * nBudgetMultiplier;
+
+    else if (nHeight < 3517920)
+        nSubsidy = 119.0 * nBudgetMultiplier;
+
+    else if (nHeight < 3558240)
+        nSubsidy = 118.75 * nBudgetMultiplier;
+
+    else if (nHeight < 3598560)
+        nSubsidy = 118.5 * nBudgetMultiplier;
+
+    else if (nHeight < 3638880)
+        nSubsidy = 118.25 * nBudgetMultiplier;
+
+    else if (nHeight < 3679200)
+        nSubsidy = 118.0 * nBudgetMultiplier;
+
+    else if (nHeight < 3719520)
+        nSubsidy = 117.75 * nBudgetMultiplier;
+
+    else if (nHeight < 3759840)
+        nSubsidy = 117.5 * nBudgetMultiplier;
+
+    else if (nHeight < 3800160)
+        nSubsidy = 117.25 * nBudgetMultiplier;
+
+    else if (nHeight < 3840480)
+        nSubsidy = 117.0 * nBudgetMultiplier;
+
+    else if (nHeight < 3880800)
+        nSubsidy = 116.75 * nBudgetMultiplier;
+
+    else if (nHeight < 3921120)
+        nSubsidy = 116.5 * nBudgetMultiplier;
+
+    else if (nHeight < 3961440)
+        nSubsidy = 116.25 * nBudgetMultiplier;
+
+    else if (nHeight < 4001760)
+        nSubsidy = 116.0 * nBudgetMultiplier;
+
+    else if (nHeight < 4042080)
+        nSubsidy = 115.75 * nBudgetMultiplier;
+
+    else if (nHeight < 4082400)
+        nSubsidy = 115.5 * nBudgetMultiplier;
+
+    else if (nHeight < 4122720)
+        nSubsidy = 115.25 * nBudgetMultiplier;
+
+    else if (nHeight < 4163040)
+        nSubsidy = 115.0 * nBudgetMultiplier;
+
+    else if (nHeight < 4203360)
+        nSubsidy = 114.75 * nBudgetMultiplier;
+
+    else if (nHeight < 4243680)
+        nSubsidy = 114.5 * nBudgetMultiplier;
+
+    else if (nHeight < 4284000)
+        nSubsidy = 114.25 * nBudgetMultiplier;
+
+    else if (nHeight < 4324320)
+        nSubsidy = 114.0 * nBudgetMultiplier;
+
+    else if (nHeight < 4364640)
+        nSubsidy = 113.75 * nBudgetMultiplier;
+
+    else if (nHeight < 4404960)
+        nSubsidy = 113.5 * nBudgetMultiplier;
+
+    else if (nHeight < 4445280)
+        nSubsidy = 113.25 * nBudgetMultiplier;
+
+    else if (nHeight < 4485600)
+        nSubsidy = 113.0 * nBudgetMultiplier;
+
+    else if (nHeight < 4525920)
+        nSubsidy = 112.75 * nBudgetMultiplier;
+
+    else if (nHeight < 4566240)
+        nSubsidy = 112.5 * nBudgetMultiplier;
+
+    else if (nHeight < 4606560)
+        nSubsidy = 112.25 * nBudgetMultiplier;
+
+    else if (nHeight < 4646880)
+        nSubsidy = 112.0 * nBudgetMultiplier;
+
+    else if (nHeight < 4687200)
+        nSubsidy = 111.75 * nBudgetMultiplier;
+
+    else if (nHeight < 4727520)
+        nSubsidy = 111.5 * nBudgetMultiplier;
+
+    else if (nHeight < 4767840)
+        nSubsidy = 111.25 * nBudgetMultiplier;
+
+    else if (nHeight < 4808160)
+        nSubsidy = 111.0 * nBudgetMultiplier;
+
+    else if (nHeight < 4848480)
+        nSubsidy = 110.75 * nBudgetMultiplier;
+
+    else if (nHeight < 4888800)
+        nSubsidy = 110.5 * nBudgetMultiplier;
+
+    else if (nHeight < 4929120)
+        nSubsidy = 110.25 * nBudgetMultiplier;
+
+    else if (nHeight < 4969440)
+        nSubsidy = 110.0 * nBudgetMultiplier;
+
+    else if (nHeight < 5009760)
+        nSubsidy = 109.75 * nBudgetMultiplier;
+
+    else if (nHeight < 5050080)
+        nSubsidy = 109.5 * nBudgetMultiplier;
+
+    else if (nHeight < 5090400)
+        nSubsidy = 109.25 * nBudgetMultiplier;
+
+    else if (nHeight < 5130720)
+        nSubsidy = 109.0 * nBudgetMultiplier;
+
+    else if (nHeight < 5171040)
+        nSubsidy = 108.75 * nBudgetMultiplier;
+
+    else if (nHeight < 5211360)
+        nSubsidy = 108.5 * nBudgetMultiplier;
+
+    else if (nHeight < 5251680)
+        nSubsidy = 108.25 * nBudgetMultiplier;
+
+    else if (nHeight < 5292000)
+        nSubsidy = 108.0 * nBudgetMultiplier;
+
+    else if (nHeight < 5332320)
+        nSubsidy = 107.75 * nBudgetMultiplier;
+
+    else if (nHeight < 5372640)
+        nSubsidy = 107.5 * nBudgetMultiplier;
+
+    else if (nHeight < 5412960)
+        nSubsidy = 107.25 * nBudgetMultiplier;
+
+    else if (nHeight < 5453280)
+        nSubsidy = 107.0 * nBudgetMultiplier;
+
+    else if (nHeight < 5493600)
+        nSubsidy = 106.75 * nBudgetMultiplier;
+
+    else if (nHeight < 5533920)
+        nSubsidy = 106.5 * nBudgetMultiplier;
+
+    else if (nHeight < 5574240)
+        nSubsidy = 106.25 * nBudgetMultiplier;
+
+    else if (nHeight < 5614560)
+        nSubsidy = 106.0 * nBudgetMultiplier;
+
+    else if (nHeight < 5654880)
+        nSubsidy = 105.75 * nBudgetMultiplier;
+
+    else if (nHeight < 5695200)
+        nSubsidy = 105.5 * nBudgetMultiplier;
+
+    else if (nHeight < 5735520)
+        nSubsidy = 105.25 * nBudgetMultiplier;
+
+    else if (nHeight < 5775840)
+        nSubsidy = 105.0 * nBudgetMultiplier;
+
+    else if (nHeight < 5816160)
+        nSubsidy = 104.75 * nBudgetMultiplier;
+
+    else if (nHeight < 5856480)
+        nSubsidy = 104.5 * nBudgetMultiplier;
+
+    else if (nHeight < 5896800)
+        nSubsidy = 104.25 * nBudgetMultiplier;
+
+    else if (nHeight < 5937120)
+        nSubsidy = 104.0 * nBudgetMultiplier;
+
+    else if (nHeight < 5977440)
+        nSubsidy = 103.75 * nBudgetMultiplier;
+
+    else if (nHeight < 6017760)
+        nSubsidy = 103.5 * nBudgetMultiplier;
+
+    else if (nHeight < 6058080)
+        nSubsidy = 103.25 * nBudgetMultiplier;
+
+    else if (nHeight < 6098400)
+        nSubsidy = 103.0 * nBudgetMultiplier;
+
+    else if (nHeight < 6138720)
+        nSubsidy = 102.75 * nBudgetMultiplier;
+
+    else if (nHeight < 6179040)
+        nSubsidy = 102.5 * nBudgetMultiplier;
+
+    else if (nHeight < 6219360)
+        nSubsidy = 102.25 * nBudgetMultiplier;
+
+    else if (nHeight < 6259680)
+        nSubsidy = 102.0 * nBudgetMultiplier;
+
+    else if (nHeight < 6300000)
+        nSubsidy = 101.75 * nBudgetMultiplier;
+
+    else if (nHeight < 6340320)
+        nSubsidy = 101.5 * nBudgetMultiplier;
+
+    else if (nHeight < 6380640)
+        nSubsidy = 101.25 * nBudgetMultiplier;
+
+    else if (nHeight < 6420960)
+        nSubsidy = 101.0 * nBudgetMultiplier;
+
+    else if (nHeight < 6461280)
+        nSubsidy = 100.75 * nBudgetMultiplier;
+
+    else if (nHeight < 6501600)
+        nSubsidy = 100.5 * nBudgetMultiplier;
+
+    else if (nHeight < 6541920)
+        nSubsidy = 100.25 * nBudgetMultiplier;
+
+    else if (nHeight < 6582240)
+        nSubsidy = 100.0 * nBudgetMultiplier;
+
+    else if (nHeight < 6622560)
+        nSubsidy = 99.75 * nBudgetMultiplier;
+
+    else if (nHeight < 6662880)
+        nSubsidy = 99.5 * nBudgetMultiplier;
+
+    else if (nHeight < 6703200)
+        nSubsidy = 99.25 * nBudgetMultiplier;
+
+    else if (nHeight < 6743520)
+        nSubsidy = 99.0 * nBudgetMultiplier;
+
+    else if (nHeight < 6783840)
+        nSubsidy = 98.75 * nBudgetMultiplier;
+
+    else if (nHeight < 6824160)
+        nSubsidy = 98.5 * nBudgetMultiplier;
+
+    else if (nHeight < 6864480)
+        nSubsidy = 98.25 * nBudgetMultiplier;
+
+    else if (nHeight < 6904800)
+        nSubsidy = 98.0 * nBudgetMultiplier;
+
+    else if (nHeight < 6945120)
+        nSubsidy = 97.75 * nBudgetMultiplier;
+
+    else if (nHeight < 6985440)
+        nSubsidy = 97.5 * nBudgetMultiplier;
+
+    else if (nHeight < 7025760)
+        nSubsidy = 97.25 * nBudgetMultiplier;
+
+    else if (nHeight < 7066080)
+        nSubsidy = 97.0 * nBudgetMultiplier;
+
+    else if (nHeight < 7106400)
+        nSubsidy = 96.75 * nBudgetMultiplier;
+
+    else if (nHeight < 7146720)
+        nSubsidy = 96.5 * nBudgetMultiplier;
+
+    else if (nHeight < 7187040)
+        nSubsidy = 96.25 * nBudgetMultiplier;
+
+    else if (nHeight < 7227360)
+        nSubsidy = 96.0 * nBudgetMultiplier;
+
+    else if (nHeight < 7267680)
+        nSubsidy = 95.75 * nBudgetMultiplier;
+
+    else if (nHeight < 7308000)
+        nSubsidy = 95.5 * nBudgetMultiplier;
+
+    else if (nHeight < 7348320)
+        nSubsidy = 95.25 * nBudgetMultiplier;
+
+    else if (nHeight < 7388640)
+        nSubsidy = 95.0 * nBudgetMultiplier;
+
+    else if (nHeight < 7428960)
+        nSubsidy = 94.75 * nBudgetMultiplier;
+
+    else if (nHeight < 7469280)
+        nSubsidy = 94.5 * nBudgetMultiplier;
+
+    else if (nHeight < 7509600)
+        nSubsidy = 94.25 * nBudgetMultiplier;
+
+    else if (nHeight < 7549920)
+        nSubsidy = 94.0 * nBudgetMultiplier;
+
+    else if (nHeight < 7590240)
+        nSubsidy = 93.75 * nBudgetMultiplier;
+
+    else if (nHeight < 7630560)
+        nSubsidy = 93.5 * nBudgetMultiplier;
+
+    else if (nHeight < 7670880)
+        nSubsidy = 93.25 * nBudgetMultiplier;
+
+    else if (nHeight < 7711200)
+        nSubsidy = 93.0 * nBudgetMultiplier;
+
+    else if (nHeight < 7751520)
+        nSubsidy = 92.75 * nBudgetMultiplier;
+
+    else if (nHeight < 7791840)
+        nSubsidy = 92.5 * nBudgetMultiplier;
+
+    else if (nHeight < 7832160)
+        nSubsidy = 92.25 * nBudgetMultiplier;
+
+    else if (nHeight < 7872480)
+        nSubsidy = 92.0 * nBudgetMultiplier;
+
+    else if (nHeight < 7912800)
+        nSubsidy = 91.75 * nBudgetMultiplier;
+
+    else if (nHeight < 7953120)
+        nSubsidy = 91.5 * nBudgetMultiplier;
+
+    else if (nHeight < 7993440)
+        nSubsidy = 91.25 * nBudgetMultiplier;
+
+    else if (nHeight < 8033760)
+        nSubsidy = 91.0 * nBudgetMultiplier;
+
+    else if (nHeight < 8074080)
+        nSubsidy = 90.75 * nBudgetMultiplier;
+
+    else if (nHeight < 8114400)
+        nSubsidy = 90.5 * nBudgetMultiplier;
+
+    else if (nHeight < 8154720)
+        nSubsidy = 90.25 * nBudgetMultiplier;
+
+    else if (nHeight < 8195040)
+        nSubsidy = 90.0 * nBudgetMultiplier;
+
+    else if (nHeight < 8235360)
+        nSubsidy = 89.75 * nBudgetMultiplier;
+
+    else if (nHeight < 8275680)
+        nSubsidy = 89.5 * nBudgetMultiplier;
+
+    else if (nHeight < 8316000)
+        nSubsidy = 89.25 * nBudgetMultiplier;
+
+    else if (nHeight < 8356320)
+        nSubsidy = 89.0 * nBudgetMultiplier;
+
+    else if (nHeight < 8396640)
+        nSubsidy = 88.75 * nBudgetMultiplier;
+
+    else if (nHeight < 8436960)
+        nSubsidy = 88.5 * nBudgetMultiplier;
+
+    else if (nHeight < 8477280)
+        nSubsidy = 88.25 * nBudgetMultiplier;
+
+    else if (nHeight < 8517600)
+        nSubsidy = 88.0 * nBudgetMultiplier;
+
+    else if (nHeight < 8557920)
+        nSubsidy = 87.75 * nBudgetMultiplier;
+
+    else if (nHeight < 8598240)
+        nSubsidy = 87.5 * nBudgetMultiplier;
+
+    else if (nHeight < 8638560)
+        nSubsidy = 87.25 * nBudgetMultiplier;
+
+    else if (nHeight < 8678880)
+        nSubsidy = 87.0 * nBudgetMultiplier;
+
+    else if (nHeight < 8719200)
+        nSubsidy = 86.75 * nBudgetMultiplier;
+
+    else if (nHeight < 8759520)
+        nSubsidy = 86.5 * nBudgetMultiplier;
+
+    else if (nHeight < 8799840)
+        nSubsidy = 86.25 * nBudgetMultiplier;
+
+    else if (nHeight < 8840160)
+        nSubsidy = 86.0 * nBudgetMultiplier;
+
+    else if (nHeight < 8880480)
+        nSubsidy = 85.75 * nBudgetMultiplier;
+
+    else if (nHeight < 8920800)
+        nSubsidy = 85.5 * nBudgetMultiplier;
+
+    else if (nHeight < 8961120)
+        nSubsidy = 85.25 * nBudgetMultiplier;
+
+    else if (nHeight < 9001440)
+        nSubsidy = 85.0 * nBudgetMultiplier;
+
+    else if (nHeight < 9041760)
+        nSubsidy = 84.75 * nBudgetMultiplier;
+
+    else if (nHeight < 9082080)
+        nSubsidy = 84.5 * nBudgetMultiplier;
+
+    else if (nHeight < 9122400)
+        nSubsidy = 84.25 * nBudgetMultiplier;
+
+    else if (nHeight < 9162720)
+        nSubsidy = 84.0 * nBudgetMultiplier;
+
+    else if (nHeight < 9203040)
+        nSubsidy = 83.75 * nBudgetMultiplier;
+
+    else if (nHeight < 9243360)
+        nSubsidy = 83.5 * nBudgetMultiplier;
+
+    else if (nHeight < 9283680)
+        nSubsidy = 83.25 * nBudgetMultiplier;
+
+    else if (nHeight < 9324000)
+        nSubsidy = 83.0 * nBudgetMultiplier;
+
+    else if (nHeight < 9364320)
+        nSubsidy = 82.75 * nBudgetMultiplier;
+
+    else if (nHeight < 9404640)
+        nSubsidy = 82.5 * nBudgetMultiplier;
+
+    else if (nHeight < 9444960)
+        nSubsidy = 82.25 * nBudgetMultiplier;
+
+    else if (nHeight < 9485280)
+        nSubsidy = 82.0 * nBudgetMultiplier;
+
+    else if (nHeight < 9525600)
+        nSubsidy = 81.75 * nBudgetMultiplier;
+
+    else if (nHeight < 9565920)
+        nSubsidy = 81.5 * nBudgetMultiplier;
+
+    else if (nHeight < 9606240)
+        nSubsidy = 81.25 * nBudgetMultiplier;
+
+    else if (nHeight < 9646560)
+        nSubsidy = 81.0 * nBudgetMultiplier;
+
+    else if (nHeight < 9686880)
+        nSubsidy = 80.75 * nBudgetMultiplier;
+
+    else if (nHeight < 9727200)
+        nSubsidy = 80.5 * nBudgetMultiplier;
+
+    else if (nHeight < 9767520)
+        nSubsidy = 80.25 * nBudgetMultiplier;
+
+    else if (nHeight < 9807840)
+        nSubsidy = 80.0 * nBudgetMultiplier;
+
+    else if (nHeight < 9848160)
+        nSubsidy = 79.75 * nBudgetMultiplier;
+
+    else if (nHeight < 9888480)
+        nSubsidy = 79.5 * nBudgetMultiplier;
+
+    else if (nHeight < 9928800)
+        nSubsidy = 79.25 * nBudgetMultiplier;
+
+    else if (nHeight < 9969120)
+        nSubsidy = 79.0 * nBudgetMultiplier;
+
+    else if (nHeight < 10009440)
+        nSubsidy = 78.75 * nBudgetMultiplier;
+
+    else if (nHeight < 10049760)
+        nSubsidy = 78.5 * nBudgetMultiplier;
+
+    else if (nHeight < 10090080)
+        nSubsidy = 78.25 * nBudgetMultiplier;
+
+    else if (nHeight < 10130400)
+        nSubsidy = 78.0 * nBudgetMultiplier;
+
+    else if (nHeight < 10170720)
+        nSubsidy = 77.75 * nBudgetMultiplier;
+
+    else if (nHeight < 10211040)
+        nSubsidy = 77.5 * nBudgetMultiplier;
+
+    else if (nHeight < 10251360)
+        nSubsidy = 77.25 * nBudgetMultiplier;
+
+    else if (nHeight < 10291680)
+        nSubsidy = 77.0 * nBudgetMultiplier;
+
+    else if (nHeight < 10332000)
+        nSubsidy = 76.75 * nBudgetMultiplier;
+
+    else if (nHeight < 10372320)
+        nSubsidy = 76.5 * nBudgetMultiplier;
+
+    else if (nHeight < 10412640)
+        nSubsidy = 76.25 * nBudgetMultiplier;
+
+    else if (nHeight < 10452960)
+        nSubsidy = 76.0 * nBudgetMultiplier;
+
+    else if (nHeight < 10493280)
+        nSubsidy = 75.75 * nBudgetMultiplier;
+
+    else if (nHeight < 10533600)
+        nSubsidy = 75.5 * nBudgetMultiplier;
+
+    else if (nHeight < 10573920)
+        nSubsidy = 75.25 * nBudgetMultiplier;
+
+    else if (nHeight < 10614240)
+        nSubsidy = 75.0 * nBudgetMultiplier;
+
+    else if (nHeight < 10654560)
+        nSubsidy = 74.75 * nBudgetMultiplier;
+
+    else if (nHeight < 10694880)
+        nSubsidy = 74.5 * nBudgetMultiplier;
+
+    else if (nHeight < 10735200)
+        nSubsidy = 74.25 * nBudgetMultiplier;
+
+    else if (nHeight < 10775520)
+        nSubsidy = 74.0 * nBudgetMultiplier;
+
+    else if (nHeight < 10815840)
+        nSubsidy = 73.75 * nBudgetMultiplier;
+
+    else if (nHeight < 10856160)
+        nSubsidy = 73.5 * nBudgetMultiplier;
+
+    else if (nHeight < 10896480)
+        nSubsidy = 73.25 * nBudgetMultiplier;
+
+    else if (nHeight < 10936800)
+        nSubsidy = 73.0 * nBudgetMultiplier;
+
+    else if (nHeight < 10977120)
+        nSubsidy = 72.75 * nBudgetMultiplier;
+
+    else if (nHeight < 11017440)
+        nSubsidy = 72.5 * nBudgetMultiplier;
+
+    else if (nHeight < 11057760)
+        nSubsidy = 72.25 * nBudgetMultiplier;
+
+    else if (nHeight < 11098080)
+        nSubsidy = 72.0 * nBudgetMultiplier;
+
+    else if (nHeight < 11138400)
+        nSubsidy = 71.75 * nBudgetMultiplier;
+
+    else if (nHeight < 11178720)
+        nSubsidy = 71.5 * nBudgetMultiplier;
+
+    else if (nHeight < 11219040)
+        nSubsidy = 71.25 * nBudgetMultiplier;
+
+    else if (nHeight < 11259360)
+        nSubsidy = 71.0 * nBudgetMultiplier;
+
+    else if (nHeight < 11299680)
+        nSubsidy = 70.75 * nBudgetMultiplier;
+
+    else if (nHeight < 11340000)
+        nSubsidy = 70.5 * nBudgetMultiplier;
+
+    else if (nHeight < 11380320)
+        nSubsidy = 70.25 * nBudgetMultiplier;
+
+    else if (nHeight < 11420640)
+        nSubsidy = 70.0 * nBudgetMultiplier;
+
+    else if (nHeight < 11460960)
+        nSubsidy = 69.75 * nBudgetMultiplier;
+
+    else if (nHeight < 11501280)
+        nSubsidy = 69.5 * nBudgetMultiplier;
+
+    else if (nHeight < 11541600)
+        nSubsidy = 69.25 * nBudgetMultiplier;
+
+    else if (nHeight < 11581920)
+        nSubsidy = 69.0 * nBudgetMultiplier;
+    
+    else if (nHeight < 11581920)
+        nSubsidy = 68.75 * nBudgetMultiplier;
+
+    else if (nHeight < 11743200)
+        nSubsidy = 68.5 * nBudgetMultiplier;
+
+    else if (nHeight < 11904480)
+        nSubsidy = 68.25 * nBudgetMultiplier;
+
+    else if (nHeight < 12065760)
+        nSubsidy = 68.0 * nBudgetMultiplier;
+
+    else if (nHeight < 12227040)
+        nSubsidy = 67.75 * nBudgetMultiplier;
+
+    else if (nHeight < 12388320)
+        nSubsidy = 67.5 * nBudgetMultiplier;
+
+    else if (nHeight < 12549600)
+        nSubsidy = 67.25 * nBudgetMultiplier;
+
+    else if (nHeight < 12710880)
+        nSubsidy = 67.0 * nBudgetMultiplier;
+
+    else if (nHeight < 12872160)
+        nSubsidy = 66.75 * nBudgetMultiplier;
+
+    else if (nHeight < 13033440)
+        nSubsidy = 66.5 * nBudgetMultiplier;
+
+    else if (nHeight < 13194720)
+        nSubsidy = 66.25 * nBudgetMultiplier;
+
+    else if (nHeight < 13356000)
+        nSubsidy = 66.0 * nBudgetMultiplier;
+
+    else if (nHeight < 13517280)
+        nSubsidy = 65.75 * nBudgetMultiplier;
+
+    else if (nHeight < 13678560)
+        nSubsidy = 65.5 * nBudgetMultiplier;
+
+    else if (nHeight < 13839840)
+        nSubsidy = 65.25 * nBudgetMultiplier;
+
+    else if (nHeight < 14001120)
+        nSubsidy = 65.0 * nBudgetMultiplier;
+
+    else if (nHeight < 14162400)
+        nSubsidy = 64.75 * nBudgetMultiplier;
+
+    else if (nHeight < 14323680)
+        nSubsidy = 64.5 * nBudgetMultiplier;
+
+    else if (nHeight < 14484960)
+        nSubsidy = 64.25 * nBudgetMultiplier;
+
+    else if (nHeight < 14646240)
+        nSubsidy = 64.0 * nBudgetMultiplier;
+
+    else if (nHeight < 14807520)
+        nSubsidy = 63.75 * nBudgetMultiplier;
+
+    else if (nHeight < 14968800)
+        nSubsidy = 63.5 * nBudgetMultiplier;
+
+    else if (nHeight < 15130080)
+        nSubsidy = 63.25 * nBudgetMultiplier;
+
+    else if (nHeight < 15291360)
+        nSubsidy = 63.0 * nBudgetMultiplier;
+
+    else if (nHeight < 15452640)
+        nSubsidy = 62.75 * nBudgetMultiplier;
+
+    else if (nHeight < 15613920)
+        nSubsidy = 62.5 * nBudgetMultiplier;
+
+    else if (nHeight < 15775200)
+        nSubsidy = 62.25 * nBudgetMultiplier;
+
+    else if (nHeight < 15936480)
+        nSubsidy = 62.0 * nBudgetMultiplier;
+
+    else if (nHeight < 16097760)
+        nSubsidy = 61.75 * nBudgetMultiplier;
+
+    else if (nHeight < 16259040)
+        nSubsidy = 61.5 * nBudgetMultiplier;
+
+    else if (nHeight < 16420320)
+        nSubsidy = 61.25 * nBudgetMultiplier;
+
+    else if (nHeight < 16581600)
+        nSubsidy = 61.0 * nBudgetMultiplier;
+
+    else if (nHeight < 16742880)
+        nSubsidy = 60.75 * nBudgetMultiplier;
+
+    else if (nHeight < 16904160)
+        nSubsidy = 60.5 * nBudgetMultiplier;
+
+    else if (nHeight < 17065440)
+        nSubsidy = 60.25 * nBudgetMultiplier;
+
+    else if (nHeight < 17226720)
+        nSubsidy = 60.0 * nBudgetMultiplier;
+
+    else if (nHeight < 17388000)
+        nSubsidy = 59.75 * nBudgetMultiplier;
+
+    else if (nHeight < 17549280)
+        nSubsidy = 59.5 * nBudgetMultiplier;
+
+    else if (nHeight < 17710560)
+        nSubsidy = 59.25 * nBudgetMultiplier;
+
+    else if (nHeight < 17871840)
+        nSubsidy = 59.0 * nBudgetMultiplier;
+
+    else if (nHeight < 18033120)
+        nSubsidy = 58.75 * nBudgetMultiplier;
+
+    else if (nHeight < 18194400)
+        nSubsidy = 58.5 * nBudgetMultiplier;
+
+    else if (nHeight < 18355680)
+        nSubsidy = 58.25 * nBudgetMultiplier;
+
+    else if (nHeight < 18516960)
+        nSubsidy = 58.0 * nBudgetMultiplier;
+
+    else if (nHeight < 18678240)
+        nSubsidy = 57.75 * nBudgetMultiplier;
+
+    else if (nHeight < 18839520)
+        nSubsidy = 57.5 * nBudgetMultiplier;
+
+    else if (nHeight < 19000800)
+        nSubsidy = 57.25 * nBudgetMultiplier;
+
+    else if (nHeight < 19162080)
+        nSubsidy = 57.0 * nBudgetMultiplier;
+
+    else if (nHeight < 19323360)
+        nSubsidy = 56.75 * nBudgetMultiplier;
+
+    else if (nHeight < 19484640)
+        nSubsidy = 56.5 * nBudgetMultiplier;
+
+    else if (nHeight < 19645920)
+        nSubsidy = 56.25 * nBudgetMultiplier;
+
+    else if (nHeight < 19807200)
+        nSubsidy = 56.0 * nBudgetMultiplier;
+
+    else if (nHeight < 19968480)
+        nSubsidy = 55.75 * nBudgetMultiplier;
+
+    else if (nHeight < 20129760)
+        nSubsidy = 55.5 * nBudgetMultiplier;
+
+    else if (nHeight < 20291040)
+        nSubsidy = 55.25 * nBudgetMultiplier;
+
+    else if (nHeight < 20452320)
+        nSubsidy = 55.0 * nBudgetMultiplier;
+
+    else if (nHeight < 20613600)
+        nSubsidy = 54.75 * nBudgetMultiplier;
+
+    else if (nHeight < 20774880)
+        nSubsidy = 54.5 * nBudgetMultiplier;
+
+    else if (nHeight < 20936160)
+        nSubsidy = 54.25 * nBudgetMultiplier;
+
+    else if (nHeight < 21097440)
+        nSubsidy = 54.0 * nBudgetMultiplier;
+
+    else if (nHeight < 21258720)
+        nSubsidy = 53.75 * nBudgetMultiplier;
+
+    else if (nHeight < 21420000)
+        nSubsidy = 53.5 * nBudgetMultiplier;
+
+    else if (nHeight < 21581280)
+        nSubsidy = 53.25 * nBudgetMultiplier;
+
+    else if (nHeight < 21742560)
+        nSubsidy = 53.0 * nBudgetMultiplier;
+
+    else if (nHeight < 21903840)
+        nSubsidy = 52.75 * nBudgetMultiplier;
+
+    else if (nHeight < 22065120)
+        nSubsidy = 52.5 * nBudgetMultiplier;
+
+    else if (nHeight < 22226400)
+        nSubsidy = 52.25 * nBudgetMultiplier;
+
+    else if (nHeight < 22387680)
+        nSubsidy = 52.0 * nBudgetMultiplier;
+
+    else if (nHeight < 22548960)
+        nSubsidy = 51.75 * nBudgetMultiplier;
+
+    else if (nHeight < 22710240)
+        nSubsidy = 51.5 * nBudgetMultiplier;
+
+    else if (nHeight < 22871520)
+        nSubsidy = 51.25 * nBudgetMultiplier;
+
+    else if (nHeight < 23032800)
+        nSubsidy = 51.0 * nBudgetMultiplier;
+
+    else if (nHeight < 23194080)
+        nSubsidy = 50.75 * nBudgetMultiplier;
+
+    else if (nHeight < 23355360)
+        nSubsidy = 50.5 * nBudgetMultiplier;
+
+    else if (nHeight < 23516640)
+        nSubsidy = 50.25 * nBudgetMultiplier;
+
+    else if (nHeight < 23677920)
+        nSubsidy = 50.0 * nBudgetMultiplier;
+    
     return nSubsidy + nFees;
 }
 
@@ -2026,7 +3522,7 @@ static CCheckQueue<CScriptCheck> scriptcheckqueue(128);
 
 void ThreadScriptCheck()
 {
-    RenameThread("colx-scriptch");
+    RenameThread("znode-scriptch");
     scriptcheckqueue.Thread();
 }
 
@@ -2179,7 +3675,7 @@ bool ConnectBlock(const CBlock& block, CValidationState& state, CBlockIndex* pin
                 nHeight = (*mi).second->nHeight + 1;
         }
 
-        // COLX
+        // zNODE
         // It is entierly possible that we don't have enough data and this could fail
         // (i.e. the block could indeed be valid). Store the block for later consideration
         // but issue an initial reject message.
@@ -2751,7 +4247,7 @@ bool ActivateBestChain(CValidationState& state, CBlock* pblock)
             {
                 LOCK(cs_vNodes);
                 BOOST_FOREACH (CNode* pnode, vNodes)
-                    if (chainActive.Height() > (pnode->nStartingHeight != -1 ? pnode->nStartingHeight - 2000 : nBlockEstimate))
+                    if (chainActive.Height() > nBlockEstimate)
                         pnode->PushInventory(CInv(MSG_BLOCK, hashNewTip));
             }
             // Notify external listeners about the new tip.
@@ -3056,7 +4552,7 @@ bool CheckBlock(const CBlock& block, CValidationState& state, bool fCheckPOW, bo
 
     // Check timestamp
     LogPrint("debug", "%s: block=%s  is proof of stake=%d\n", __func__, block.GetHash().ToString().c_str(), block.IsProofOfStake());
-    if (block.GetBlockTime() > GetAdjustedTime() + (block.IsProofOfStake() ? 60 : 7200)) // 1 minute future drift for PoS
+    if (block.GetBlockTime() > GetAdjustedTime() + (block.IsProofOfStake() ? 240 : 7200)) // 1 minute future drift for PoS
         return state.Invalid(error("CheckBlock() : block timestamp too far in the future"),
             REJECT_INVALID, "time-too-new");
 
@@ -5339,7 +6835,7 @@ bool static ProcessMessage(CNode* pfrom, string strCommand, CDataStream& vRecv, 
 }
 
 // Note: whenever a protocol update is needed toggle between both implementations (comment out the formerly active one)
-//       so we can leave the existing clients untouched (old SPORK will stay on so they don't see even older clients). 
+//       so we can leave the existing clients untouched (old SPORK will stay on so they don't see even older clients).
 //       Those old clients won't react to the changes of the other (new) SPORK because at the time of their implementation
 //       it was the one which was commented out
 int ActiveProtocol()
@@ -5357,9 +6853,9 @@ int ActiveProtocol()
 */
 
 
-    // SPORK_15 is used for 70910. Nodes < 70910 don't see it and still get their protocol version via SPORK_14 and their 
+    // SPORK_15 is used for 70910. Nodes < 70910 don't see it and still get their protocol version via SPORK_14 and their
     // own ModifierUpgradeBlock()
- 
+
     if (IsSporkActive(SPORK_15_NEW_PROTOCOL_ENFORCEMENT_2))
             return MIN_PEER_PROTO_VERSION_AFTER_ENFORCEMENT;
 

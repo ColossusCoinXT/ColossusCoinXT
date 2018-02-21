@@ -1,0 +1,26 @@
+# /etc/conf.d/znoded: config file for /etc/init.d/znoded
+
+# Config file location
+#BITCOIND_CONFIGFILE="/etc/znode/znode.conf"
+
+# What directory to write pidfile to?  (created and owned by $BITCOIND_USER)
+#BITCOIND_PIDDIR="/var/run/znoded"
+
+# What filename to give the pidfile
+#BITCOIND_PIDFILE="${BITCOIND_PIDDIR}/znoded.pid"
+
+# Where to write znoded data (be mindful that the blockchain is large)
+#BITCOIND_DATADIR="/var/lib/znoded"
+
+# User and group to own znoded process
+#BITCOIND_USER="znode"
+#BITCOIND_GROUP="znode"
+
+# Path to znoded executable
+#BITCOIND_BIN="/usr/bin/znoded"
+
+# Nice value to run znoded under
+#BITCOIND_NICE=0
+
+# Additional options (avoid -conf and -datadir, use flags above)
+BITCOIND_OPTS=""

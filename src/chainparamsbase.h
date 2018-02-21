@@ -9,8 +9,8 @@
 #include <vector>
 
 /**
- * CBaseChainParams defines the base parameters (shared between colx-cli and colxd)
- * of a given instance of the Pivx system.
+ * CBaseChainParams defines the base parameters (shared between znode-cli and znoded)
+ * of a given instance of the ZeroNode system.
  */
 class CBaseChainParams
 {

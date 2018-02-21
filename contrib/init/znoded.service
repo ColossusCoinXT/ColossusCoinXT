@@ -1,0 +1,26 @@
+[Unit]
+Description=zNODE's distributed currency daemon
+After=network.target
+
+[Service]
+User=znode
+Group=znode
+
+Type=forking
+PIDFile=/var/lib/znoded/znoded.pid
+
+ExecStart=/usr/bin/znoded -daemon -pid=/var/lib/znoded/znoded.pid \
+          -conf=/etc/znode/znode.conf -datadir=/var/lib/znoded
+
+ExecStop=-/usr/bin/znode-cli -conf=/etc/znode/znode.conf \
+         -datadir=/var/lib/znoded stop
+
+Restart=always
+PrivateTmp=true
+TimeoutStopSec=60s
+TimeoutStartSec=2s
+StartLimitInterval=120s
+StartLimitBurst=5
+
+[Install]
+WantedBy=multi-user.target

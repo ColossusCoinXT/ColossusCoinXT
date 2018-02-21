@@ -17,7 +17,7 @@ osx=true
 SIGNER=
 VERSION=
 commit=false
-url=https://github.com/colx-project/colx
+url=https://github.com/znode-project/znode
 proc=2
 mem=2000
 lxc=true
@@ -31,7 +31,7 @@ commitFiles=true
 read -d '' usage <<- EOF
 Usage: $scriptName [-c|u|v|b|s|B|o|h|j|m|] signer version
 
-Run this script from the directory containing the colx, gitian-builder, gitian.sigs, and colx-detached-sigs.
+Run this script from the directory containing the znode, gitian-builder, gitian.sigs, and znode-detached-sigs.
 
 Arguments:
 signer          GPG signer to sign each build assert file
@@ -39,7 +39,7 @@ version		Version number, commit, or branch to build. If building a commit or bra
 
 Options:
 -c|--commit	Indicate that the version argument is for a commit or branch
--u|--url	Specify the URL of the repository. Default is https://github.com/colx-project/colx
+-u|--url	Specify the URL of the repository. Default is https://github.com/znode-project/znode
 -v|--verify 	Verify the gitian build
 -b|--build	Do a gitian build
 -s|--sign	Make signed binaries for Windows and Mac OSX
@@ -232,8 +232,8 @@ echo ${COMMIT}
 if [[ $setup = true ]]
 then
     sudo apt-get install ruby apache2 git apt-cacher-ng python-vm-builder qemu-kvm qemu-utils
-    git clone https://github.com/colx-project/gitian.sigs.git
-    git clone https://github.com/colx-project/colx-detached-sigs.git
+    git clone https://github.com/znode-project/gitian.sigs.git
+    git clone https://github.com/znode-project/znode-detached-sigs.git
     git clone https://github.com/devrandom/gitian-builder.git
     pushd ./gitian-builder
     if [[ -n "$USE_LXC" ]]
@@ -247,7 +247,7 @@ then
 fi
 
 # Set up build
-pushd ./colx
+pushd ./znode
 git fetch
 git checkout ${COMMIT}
 popd
@@ -256,7 +256,7 @@ popd
 if [[ $build = true ]]
 then
 	# Make output folder
-	mkdir -p ./colx-binaries/${VERSION}
+	mkdir -p ./znode-binaries/${VERSION}
 
 	# Build Dependencies
 	echo ""
@@ -266,7 +266,7 @@ then
 	mkdir -p inputs
 	wget -N -P inputs $osslPatchUrl
 	wget -N -P inputs $osslTarUrl
-	make -C ../colx/depends download SOURCES_PATH=`pwd`/cache/common
+	make -C ../znode/depends download SOURCES_PATH=`pwd`/cache/common
 
 	# Linux
 	if [[ $linux = true ]]
@@ -274,9 +274,9 @@ then
             echo ""
 	    echo "Compiling ${VERSION} Linux"
 	    echo ""
-	    ./bin/gbuild -j ${proc} -m ${mem} --commit colx=${COMMIT} --url colx=${url} ../colx/contrib/gitian-descriptors/gitian-linux.yml
-	    ./bin/gsign -p $signProg --signer $SIGNER --release ${VERSION}-linux --destination ../gitian.sigs/ ../colx/contrib/gitian-descriptors/gitian-linux.yml
-	    mv build/out/colx-*.tar.gz build/out/src/colx-*.tar.gz ../colx-binaries/${VERSION}
+	    ./bin/gbuild -j ${proc} -m ${mem} --commit znode=${COMMIT} --url znode=${url} ../znode/contrib/gitian-descriptors/gitian-linux.yml
+	    ./bin/gsign -p $signProg --signer $SIGNER --release ${VERSION}-linux --destination ../gitian.sigs/ ../znode/contrib/gitian-descriptors/gitian-linux.yml
+	    mv build/out/znode-*.tar.gz build/out/src/znode-*.tar.gz ../znode-binaries/${VERSION}
 	fi
 	# Windows
 	if [[ $windows = true ]]
@@ -284,10 +284,10 @@ then
 	    echo ""
 	    echo "Compiling ${VERSION} Windows"
 	    echo ""
-	    ./bin/gbuild -j ${proc} -m ${mem} --commit colx=${COMMIT} --url colx=${url} ../colx/contrib/gitian-descriptors/gitian-win.yml
-	    ./bin/gsign -p $signProg --signer $SIGNER --release ${VERSION}-win-unsigned --destination ../gitian.sigs/ ../colx/contrib/gitian-descriptors/gitian-win.yml
-	    mv build/out/colx-*-win-unsigned.tar.gz inputs/colx-win-unsigned.tar.gz
-	    mv build/out/colx-*.zip build/out/colx-*.exe ../colx-binaries/${VERSION}
+	    ./bin/gbuild -j ${proc} -m ${mem} --commit znode=${COMMIT} --url znode=${url} ../znode/contrib/gitian-descriptors/gitian-win.yml
+	    ./bin/gsign -p $signProg --signer $SIGNER --release ${VERSION}-win-unsigned --destination ../gitian.sigs/ ../znode/contrib/gitian-descriptors/gitian-win.yml
+	    mv build/out/znode-*-win-unsigned.tar.gz inputs/znode-win-unsigned.tar.gz
+	    mv build/out/znode-*.zip build/out/znode-*.exe ../znode-binaries/${VERSION}
 	fi
 	# Mac OSX
 	if [[ $osx = true ]]
@@ -295,10 +295,10 @@ then
 	    echo ""
 	    echo "Compiling ${VERSION} Mac OSX"
 	    echo ""
-	    ./bin/gbuild -j ${proc} -m ${mem} --commit colx=${COMMIT} --url colx=${url} ../colx/contrib/gitian-descriptors/gitian-osx.yml
-	    ./bin/gsign -p $signProg --signer $SIGNER --release ${VERSION}-osx-unsigned --destination ../gitian.sigs/ ../colx/contrib/gitian-descriptors/gitian-osx.yml
-	    mv build/out/colx-*-osx-unsigned.tar.gz inputs/colx-osx-unsigned.tar.gz
-	    mv build/out/colx-*.tar.gz build/out/colx-*.dmg ../colx-binaries/${VERSION}
+	    ./bin/gbuild -j ${proc} -m ${mem} --commit znode=${COMMIT} --url znode=${url} ../znode/contrib/gitian-descriptors/gitian-osx.yml
+	    ./bin/gsign -p $signProg --signer $SIGNER --release ${VERSION}-osx-unsigned --destination ../gitian.sigs/ ../znode/contrib/gitian-descriptors/gitian-osx.yml
+	    mv build/out/znode-*-osx-unsigned.tar.gz inputs/znode-osx-unsigned.tar.gz
+	    mv build/out/znode-*.tar.gz build/out/znode-*.dmg ../znode-binaries/${VERSION}
 	fi
 	popd
 
@@ -325,27 +325,27 @@ then
 	echo ""
 	echo "Verifying v${VERSION} Linux"
 	echo ""
-	./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-linux ../colx/contrib/gitian-descriptors/gitian-linux.yml
+	./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-linux ../znode/contrib/gitian-descriptors/gitian-linux.yml
 	# Windows
 	echo ""
 	echo "Verifying v${VERSION} Windows"
 	echo ""
-	./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-win-unsigned ../colx/contrib/gitian-descriptors/gitian-win.yml
+	./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-win-unsigned ../znode/contrib/gitian-descriptors/gitian-win.yml
 	# Mac OSX
 	echo ""
 	echo "Verifying v${VERSION} Mac OSX"
 	echo ""
-	./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-osx-unsigned ../colx/contrib/gitian-descriptors/gitian-osx.yml
+	./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-osx-unsigned ../znode/contrib/gitian-descriptors/gitian-osx.yml
 	# Signed Windows
 	echo ""
 	echo "Verifying v${VERSION} Signed Windows"
 	echo ""
-	./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-osx-signed ../colx/contrib/gitian-descriptors/gitian-osx-signer.yml
+	./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-osx-signed ../znode/contrib/gitian-descriptors/gitian-osx-signer.yml
 	# Signed Mac OSX
 	echo ""
 	echo "Verifying v${VERSION} Signed Mac OSX"
 	echo ""
-	./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-osx-signed ../colx/contrib/gitian-descriptors/gitian-osx-signer.yml
+	./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-osx-signed ../znode/contrib/gitian-descriptors/gitian-osx-signer.yml
 	popd
 fi
 
@@ -360,10 +360,10 @@ then
 	    echo ""
 	    echo "Signing ${VERSION} Windows"
 	    echo ""
-	    ./bin/gbuild -i --commit signature=${COMMIT} ../colx/contrib/gitian-descriptors/gitian-win-signer.yml
-	    ./bin/gsign -p $signProg --signer $SIGNER --release ${VERSION}-win-signed --destination ../gitian.sigs/ ../colx/contrib/gitian-descriptors/gitian-win-signer.yml
-	    mv build/out/colx-*win64-setup.exe ../colx-binaries/${VERSION}
-	    mv build/out/colx-*win32-setup.exe ../colx-binaries/${VERSION}
+	    ./bin/gbuild -i --commit signature=${COMMIT} ../znode/contrib/gitian-descriptors/gitian-win-signer.yml
+	    ./bin/gsign -p $signProg --signer $SIGNER --release ${VERSION}-win-signed --destination ../gitian.sigs/ ../znode/contrib/gitian-descriptors/gitian-win-signer.yml
+	    mv build/out/znode-*win64-setup.exe ../znode-binaries/${VERSION}
+	    mv build/out/znode-*win32-setup.exe ../znode-binaries/${VERSION}
 	fi
 	# Sign Mac OSX
 	if [[ $osx = true ]]
@@ -371,9 +371,9 @@ then
 	    echo ""
 	    echo "Signing ${VERSION} Mac OSX"
 	    echo ""
-	    ./bin/gbuild -i --commit signature=${COMMIT} ../colx/contrib/gitian-descriptors/gitian-osx-signer.yml
-	    ./bin/gsign -p $signProg --signer $SIGNER --release ${VERSION}-osx-signed --destination ../gitian.sigs/ ../colx/contrib/gitian-descriptors/gitian-osx-signer.yml
-	    mv build/out/colx-osx-signed.dmg ../colx-binaries/${VERSION}/colx-${VERSION}-osx.dmg
+	    ./bin/gbuild -i --commit signature=${COMMIT} ../znode/contrib/gitian-descriptors/gitian-osx-signer.yml
+	    ./bin/gsign -p $signProg --signer $SIGNER --release ${VERSION}-osx-signed --destination ../gitian.sigs/ ../znode/contrib/gitian-descriptors/gitian-osx-signer.yml
+	    mv build/out/znode-osx-signed.dmg ../znode-binaries/${VERSION}/znode-${VERSION}-osx.dmg
 	fi
 	popd
 

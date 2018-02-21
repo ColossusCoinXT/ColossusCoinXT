@@ -1,0 +1,28 @@
+<!DOCTYPE RCC><RCC version="1.0">
+    <qresource prefix="/translations">
+        <file alias="bg">locale/znode_bg.qm</file>
+        <file alias="ca">locale/znode_ca.qm</file>
+        <file alias="cs">locale/znode_cs.qm</file>
+        <file alias="da">locale/znode_da.qm</file>
+        <file alias="de">locale/znode_de.qm</file>
+        <file alias="en">locale/znode_en.qm</file>
+        <file alias="en_US">locale/znode_en_US.qm</file>
+        <file alias="es">locale/znode_es.qm</file>
+        <file alias="fi">locale/znode_fi.qm</file>
+        <file alias="fr_FR">locale/znode_fr_FR.qm</file>
+        <file alias="it">locale/znode_it.qm</file>
+        <file alias="ja">locale/znode_ja.qm</file>
+        <file alias="ko_KR">locale/znode_ko_KR.qm</file>
+        <file alias="nl">locale/znode_nl.qm</file>
+        <file alias="pl">locale/znode_pl.qm</file>
+        <file alias="pt">locale/znode_pt.qm</file>
+        <file alias="pt_BR">locale/znode_pt_BR.qm</file>
+        <file alias="ro_RO">locale/znode_ro_RO.qm</file>
+        <file alias="ru">locale/znode_ru.qm</file>
+        <file alias="sk">locale/znode_sk.qm</file>
+        <file alias="sv">locale/znode_sv.qm</file>
+        <file alias="uk">locale/znode_uk.qm</file>
+        <file alias="zh_CN">locale/znode_zh_CN.qm</file>
+        <file alias="zh_TW">locale/znode_zh_TW.qm</file>
+    </qresource>
+</RCC>

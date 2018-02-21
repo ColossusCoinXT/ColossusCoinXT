@@ -17,7 +17,7 @@
 
 unsigned int GetNextWorkRequired(const CBlockIndex* pindexLast, const CBlockHeader* pblock)
 {
-    /* current difficulty formula, colx - DarkGravity v3, written by Evan Duffield - evan@dashpay.io */
+    /* current difficulty formula, znode - DarkGravity v3, written by Evan Duffield - evan@dashpay.io */
     const CBlockIndex* BlockLastSolved = pindexLast;
     int64_t PastBlocksMin = 24;
 

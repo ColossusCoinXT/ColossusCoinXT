@@ -3,7 +3,7 @@ Release Process
 
 Before every release candidate:
 
-* Update translations (ping Fuzzbawls on Slack) see [translation_process.md](https://github.com/COLX-Project/COLX/blob/master/doc/translation_process.md#synchronising-translations).
+* Update translations (ping Fuzzbawls on Slack) see [translation_process.md](https://github.com/zeronode-project/zeronode/blob/master/doc/translation_process.md#synchronising-translations).
 
 Before every minor and major release:
 
@@ -24,12 +24,12 @@ If you're using the automated script (found in [contrib/gitian-build.sh](/contri
 Check out the source code in the following directory hierarchy.
 
     cd /path/to/your/toplevel/build
-    git clone https://github.com/colx-project/gitian.sigs.git
-    git clone https://github.com/colx-project/colx-detached-sigs.git
+    git clone https://github.com/zeronode-project/gitian.sigs.git
+    git clone https://github.com/zeronode-project/zeronode-detached-sigs.git
     git clone https://github.com/devrandom/gitian-builder.git
-    git clone https://github.com/colx-project/colx.git
+    git clone https://github.com/zeronode-project/zeronode.git
 
-### COLX maintainers/release engineers, suggestion for writing release notes
+### ZeroNode maintainers/release engineers, suggestion for writing release notes
 
 Write release notes. git shortlog helps a lot, for example:
 
@@ -50,7 +50,7 @@ If you're using the automated script (found in [contrib/gitian-build.sh](/contri
 
 Setup Gitian descriptors:
 
-    pushd ./colx
+    pushd ./zeronode
     export SIGNER=(your Gitian key, ie bluematt, sipa, etc)
     export VERSION=(new version, e.g. 0.8.0)
     git fetch
@@ -84,7 +84,7 @@ Create the OS X SDK tarball, see the [OS X readme](README_osx.md) for details, a
 By default, Gitian will fetch source files as needed. To cache them ahead of time:
 
     pushd ./gitian-builder
-    make -C ../colx/depends download SOURCES_PATH=`pwd`/cache/common
+    make -C ../zeronode/depends download SOURCES_PATH=`pwd`/cache/common
     popd
 
 Only missing files will be fetched, so this is safe to re-run for each build.
@@ -92,50 +92,50 @@ Only missing files will be fetched, so this is safe to re-run for each build.
 NOTE: Offline builds must use the --url flag to ensure Gitian fetches only from local URLs. For example:
 
     pushd ./gitian-builder
-    ./bin/gbuild --url colx=/path/to/colx,signature=/path/to/sigs {rest of arguments}
+    ./bin/gbuild --url zeronode=/path/to/zeronode,signature=/path/to/sigs {rest of arguments}
     popd
 
 The gbuild invocations below <b>DO NOT DO THIS</b> by default.
 
-### Build and sign COLX Core for Linux, Windows, and OS X:
+### Build and sign zeronode Core for Linux, Windows, and OS X:
 
     pushd ./gitian-builder
-    ./bin/gbuild --memory 3000 --commit colx=v${VERSION} ../colx/contrib/gitian-descriptors/gitian-linux.yml
-    ./bin/gsign --signer $SIGNER --release ${VERSION}-linux --destination ../gitian.sigs/ ../colx/contrib/gitian-descriptors/gitian-linux.yml
-    mv build/out/colx-*.tar.gz build/out/src/colx-*.tar.gz ../
+    ./bin/gbuild --memory 3000 --commit zeronode=v${VERSION} ../zeronode/contrib/gitian-descriptors/gitian-linux.yml
+    ./bin/gsign --signer $SIGNER --release ${VERSION}-linux --destination ../gitian.sigs/ ../zeronode/contrib/gitian-descriptors/gitian-linux.yml
+    mv build/out/zeronode-*.tar.gz build/out/src/zeronode-*.tar.gz ../
 
-    ./bin/gbuild --memory 3000 --commit colx=v${VERSION} ../colx/contrib/gitian-descriptors/gitian-win.yml
-    ./bin/gsign --signer $SIGNER --release ${VERSION}-win-unsigned --destination ../gitian.sigs/ ../colx/contrib/gitian-descriptors/gitian-win.yml
-    mv build/out/colx-*-win-unsigned.tar.gz inputs/colx-win-unsigned.tar.gz
-    mv build/out/colx-*.zip build/out/colx-*.exe ../
+    ./bin/gbuild --memory 3000 --commit zeronode=v${VERSION} ../zeronode/contrib/gitian-descriptors/gitian-win.yml
+    ./bin/gsign --signer $SIGNER --release ${VERSION}-win-unsigned --destination ../gitian.sigs/ ../zeronode/contrib/gitian-descriptors/gitian-win.yml
+    mv build/out/zeronode-*-win-unsigned.tar.gz inputs/zeronode-win-unsigned.tar.gz
+    mv build/out/zeronode-*.zip build/out/zeronode-*.exe ../
 
-    ./bin/gbuild --memory 3000 --commit colx=v${VERSION} ../colx/contrib/gitian-descriptors/gitian-osx.yml
-    ./bin/gsign --signer $SIGNER --release ${VERSION}-osx-unsigned --destination ../gitian.sigs/ ../colx/contrib/gitian-descriptors/gitian-osx.yml
-    mv build/out/colx-*-osx-unsigned.tar.gz inputs/colx-osx-unsigned.tar.gz
-    mv build/out/colx-*.tar.gz build/out/colx-*.dmg ../
+    ./bin/gbuild --memory 3000 --commit zeronode=v${VERSION} ../zeronode/contrib/gitian-descriptors/gitian-osx.yml
+    ./bin/gsign --signer $SIGNER --release ${VERSION}-osx-unsigned --destination ../gitian.sigs/ ../zeronode/contrib/gitian-descriptors/gitian-osx.yml
+    mv build/out/zeronode-*-osx-unsigned.tar.gz inputs/zeronode-osx-unsigned.tar.gz
+    mv build/out/zeronode-*.tar.gz build/out/zeronode-*.dmg ../
     popd
 
 Build output expected:
 
-  1. source tarball (`colx-${VERSION}.tar.gz`)
-  2. linux 32-bit and 64-bit dist tarballs (`colx-${VERSION}-linux[32|64].tar.gz`)
-  3. windows 32-bit and 64-bit unsigned installers and dist zips (`colx-${VERSION}-win[32|64]-setup-unsigned.exe`, `colx-${VERSION}-win[32|64].zip`)
-  4. OS X unsigned installer and dist tarball (`colx-${VERSION}-osx-unsigned.dmg`, `colx-${VERSION}-osx64.tar.gz`)
+  1. source tarball (`zeronode-${VERSION}.tar.gz`)
+  2. linux 32-bit and 64-bit dist tarballs (`zeronode-${VERSION}-linux[32|64].tar.gz`)
+  3. windows 32-bit and 64-bit unsigned installers and dist zips (`zeronode-${VERSION}-win[32|64]-setup-unsigned.exe`, `zeronode-${VERSION}-win[32|64].zip`)
+  4. OS X unsigned installer and dist tarball (`zeronode-${VERSION}-osx-unsigned.dmg`, `zeronode-${VERSION}-osx64.tar.gz`)
   5. Gitian signatures (in `gitian.sigs/${VERSION}-<linux|{win,osx}-unsigned>/(your Gitian key)/`)
 
 ### Verify other gitian builders signatures to your own. (Optional)
 
 Add other gitian builders keys to your gpg keyring, and/or refresh keys.
 
-    gpg --import colx/contrib/gitian-keys/*.pgp
+    gpg --import zeronode/contrib/gitian-keys/*.pgp
     gpg --refresh-keys
 
 Verify the signatures
 
     pushd ./gitian-builder
-    ./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-linux ../colx/contrib/gitian-descriptors/gitian-linux.yml
-    ./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-win-unsigned ../colx/contrib/gitian-descriptors/gitian-win.yml
-    ./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-osx-unsigned ../colx/contrib/gitian-descriptors/gitian-osx.yml
+    ./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-linux ../zeronode/contrib/gitian-descriptors/gitian-linux.yml
+    ./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-win-unsigned ../zeronode/contrib/gitian-descriptors/gitian-win.yml
+    ./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-osx-unsigned ../zeronode/contrib/gitian-descriptors/gitian-osx.yml
     popd
 
 ### Next steps:
@@ -156,22 +156,22 @@ Codesigner only: Create Windows/OS X detached signatures:
 
 Codesigner only: Sign the osx binary:
 
-    transfer colx-osx-unsigned.tar.gz to osx for signing
-    tar xf colx-osx-unsigned.tar.gz
+    transfer zeronode-osx-unsigned.tar.gz to osx for signing
+    tar xf zeronode-osx-unsigned.tar.gz
     ./detached-sig-create.sh -s "Key ID"
     Enter the keychain password and authorize the signature
     Move signature-osx.tar.gz back to the gitian host
 
 Codesigner only: Sign the windows binaries:
 
-    tar xf colx-win-unsigned.tar.gz
+    tar xf zeronode-win-unsigned.tar.gz
     ./detached-sig-create.sh -key /path/to/codesign.key
     Enter the passphrase for the key when prompted
     signature-win.tar.gz will be created
 
 Codesigner only: Commit the detached codesign payloads:
 
-    cd ~/colx-detached-sigs
+    cd ~/zeronode-detached-sigs
     checkout the appropriate branch for this release series
     rm -rf *
     tar xf signature-osx.tar.gz
@@ -184,25 +184,25 @@ Codesigner only: Commit the detached codesign payloads:
 Non-codesigners: wait for Windows/OS X detached signatures:
 
 - Once the Windows/OS X builds each have 3 matching signatures, they will be signed with their respective release keys.
-- Detached signatures will then be committed to the [colx-detached-sigs](https://github.com/COLX-Project/colx-detached-sigs) repository, which can be combined with the unsigned apps to create signed binaries.
+- Detached signatures will then be committed to the [zeronode-detached-sigs](https://github.com/zeronode-project/zeronode-detached-sigs) repository, which can be combined with the unsigned apps to create signed binaries.
 
 Create (and optionally verify) the signed OS X binary:
 
     pushd ./gitian-builder
-    ./bin/gbuild -i --commit signature=v${VERSION} ../colx/contrib/gitian-descriptors/gitian-osx-signer.yml
-    ./bin/gsign --signer $SIGNER --release ${VERSION}-osx-signed --destination ../gitian.sigs/ ../colx/contrib/gitian-descriptors/gitian-osx-signer.yml
-    ./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-osx-signed ../colx/contrib/gitian-descriptors/gitian-osx-signer.yml
-    mv build/out/colx-osx-signed.dmg ../colx-${VERSION}-osx.dmg
+    ./bin/gbuild -i --commit signature=v${VERSION} ../zeronode/contrib/gitian-descriptors/gitian-osx-signer.yml
+    ./bin/gsign --signer $SIGNER --release ${VERSION}-osx-signed --destination ../gitian.sigs/ ../zeronode/contrib/gitian-descriptors/gitian-osx-signer.yml
+    ./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-osx-signed ../zeronode/contrib/gitian-descriptors/gitian-osx-signer.yml
+    mv build/out/zeronode-osx-signed.dmg ../zeronode-${VERSION}-osx.dmg
     popd
 
 Create (and optionally verify) the signed Windows binaries:
 
     pushd ./gitian-builder
-    ./bin/gbuild -i --commit signature=v${VERSION} ../colx/contrib/gitian-descriptors/gitian-win-signer.yml
-    ./bin/gsign --signer $SIGNER --release ${VERSION}-win-signed --destination ../gitian.sigs/ ../colx/contrib/gitian-descriptors/gitian-win-signer.yml
-    ./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-win-signed ../colx/contrib/gitian-descriptors/gitian-win-signer.yml
-    mv build/out/colx-*win64-setup.exe ../colx-${VERSION}-win64-setup.exe
-    mv build/out/colx-*win32-setup.exe ../colx-${VERSION}-win32-setup.exe
+    ./bin/gbuild -i --commit signature=v${VERSION} ../zeronode/contrib/gitian-descriptors/gitian-win-signer.yml
+    ./bin/gsign --signer $SIGNER --release ${VERSION}-win-signed --destination ../gitian.sigs/ ../zeronode/contrib/gitian-descriptors/gitian-win-signer.yml
+    ./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-win-signed ../zeronode/contrib/gitian-descriptors/gitian-win-signer.yml
+    mv build/out/zeronode-*win64-setup.exe ../zeronode-${VERSION}-win64-setup.exe
+    mv build/out/zeronode-*win32-setup.exe ../zeronode-${VERSION}-win32-setup.exe
     popd
 
 Commit your signature for the signed OS X/Windows binaries:
@@ -224,23 +224,23 @@ sha256sum * > SHA256SUMS
 
 The list of files should be:
 ```
-colx-${VERSION}-aarch64-linux-gnu.tar.gz
-colx-${VERSION}-arm-linux-gnueabihf.tar.gz
-colx-${VERSION}-i686-pc-linux-gnu.tar.gz
-colx-${VERSION}-x86_64-linux-gnu.tar.gz
-colx-${VERSION}-osx64.tar.gz
-colx-${VERSION}-osx.dmg
-colx-${VERSION}.tar.gz
-colx-${VERSION}-win32-setup.exe
-colx-${VERSION}-win32.zip
-colx-${VERSION}-win64-setup.exe
-colx-${VERSION}-win64.zip
+zeronode-${VERSION}-aarch64-linux-gnu.tar.gz
+zeronode-${VERSION}-arm-linux-gnueabihf.tar.gz
+zeronode-${VERSION}-i686-pc-linux-gnu.tar.gz
+zeronode-${VERSION}-x86_64-linux-gnu.tar.gz
+zeronode-${VERSION}-osx64.tar.gz
+zeronode-${VERSION}-osx.dmg
+zeronode-${VERSION}.tar.gz
+zeronode-${VERSION}-win32-setup.exe
+zeronode-${VERSION}-win32.zip
+zeronode-${VERSION}-win64-setup.exe
+zeronode-${VERSION}-win64.zip
 ```
 The `*-debug*` files generated by the gitian build contain debug symbols
 for troubleshooting by developers. It is assumed that anyone that is interested
 in debugging can run gitian to generate the files for themselves. To avoid
 end-user confusion about which file to pick, as well as save storage
-space *do not upload these to the colx.org server*.
+space *do not upload these to the zeronode.org server*.
 
 - GPG-sign it, delete the unsigned file:
 ```
@@ -256,10 +256,10 @@ Note: check that SHA256SUMS itself doesn't end up in SHA256SUMS, which is a spur
 
   - bitcointalk announcement thread
 
-  - Optionally twitter, reddit /r/colx, ... but this will usually sort out itself
+  - Optionally twitter, reddit /r/zeronode, ... but this will usually sort out itself
 
   - Archive release notes for the new version to `doc/release-notes/` (branch `master` and branch of the release)
 
-  - Create a [new GitHub release](https://github.com/COLX-Project/COLX/releases/new) with a link to the archived release notes.
+  - Create a [new GitHub release](https://github.com/zeronode-project/zeronode/releases/new) with a link to the archived release notes.
 
   - Celebrate

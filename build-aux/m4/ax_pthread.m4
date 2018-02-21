@@ -1,7 +1,7 @@
 # ===========================================================================
 #        http://www.gnu.org/software/autoconf-archive/ax_pthread.html
 # ===========================================================================
-#
+# 
 # SYNOPSIS
 #
 #   AX_PTHREAD([ACTION-IF-FOUND[, ACTION-IF-NOT-FOUND]])

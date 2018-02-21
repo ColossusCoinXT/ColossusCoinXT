@@ -19,18 +19,18 @@ BitcoinUnits::BitcoinUnits(QObject* parent) : QAbstractListModel(parent),
 QList<BitcoinUnits::Unit> BitcoinUnits::availableUnits()
 {
     QList<BitcoinUnits::Unit> unitlist;
-    unitlist.append(COLX);
-    unitlist.append(mCOLX);
-    unitlist.append(uCOLX);
+    unitlist.append(zNODE);
+    unitlist.append(mzNODE);
+    unitlist.append(uzNODE);
     return unitlist;
 }
 
 bool BitcoinUnits::valid(int unit)
 {
     switch (unit) {
-    case COLX:
-    case mCOLX:
-    case uCOLX:
+    case zNODE:
+    case mzNODE:
+    case uzNODE:
         return true;
     default:
         return false;
@@ -40,12 +40,12 @@ bool BitcoinUnits::valid(int unit)
 QString BitcoinUnits::id(int unit)
 {
     switch (unit) {
-    case COLX:
-        return QString("colx");
-    case mCOLX:
-        return QString("mcolx");
-    case uCOLX:
-        return QString::fromUtf8("ucolx");
+    case zNODE:
+        return QString("znode");
+    case mzNODE:
+        return QString("mznode");
+    case uzNODE:
+        return QString::fromUtf8("uznode");
     default:
         return QString("???");
     }
@@ -55,23 +55,23 @@ QString BitcoinUnits::name(int unit)
 {
     if (Params().NetworkID() == CBaseChainParams::MAIN) {
         switch (unit) {
-        case COLX:
-            return QString("COLX");
-        case mCOLX:
-            return QString("mCOLX");
-        case uCOLX:
-            return QString::fromUtf8("μCOLX");
+        case zNODE:
+            return QString("zNODE");
+        case mzNODE:
+            return QString("mzNODE");
+        case uzNODE:
+            return QString::fromUtf8("μzNODE");
         default:
             return QString("???");
         }
     } else {
         switch (unit) {
-        case COLX:
-            return QString("tCOLX");
-        case mCOLX:
-            return QString("mtCOLX");
-        case uCOLX:
-            return QString::fromUtf8("μtCOLX");
+        case zNODE:
+            return QString("tzNODE");
+        case mzNODE:
+            return QString("mtzNODE");
+        case uzNODE:
+            return QString::fromUtf8("μtzNODE");
         default:
             return QString("???");
         }
@@ -82,23 +82,23 @@ QString BitcoinUnits::description(int unit)
 {
     if (Params().NetworkID() == CBaseChainParams::MAIN) {
         switch (unit) {
-        case COLX:
-            return QString("COLX");
-        case mCOLX:
-            return QString("Milli-COLX (1 / 1" THIN_SP_UTF8 "000)");
-        case uCOLX:
-            return QString("Micro-COLX (1 / 1" THIN_SP_UTF8 "000" THIN_SP_UTF8 "000)");
+        case zNODE:
+            return QString("zNODE");
+        case mzNODE:
+            return QString("Milli-zNODE (1 / 1" THIN_SP_UTF8 "000)");
+        case uzNODE:
+            return QString("Micro-zNODE (1 / 1" THIN_SP_UTF8 "000" THIN_SP_UTF8 "000)");
         default:
             return QString("???");
         }
     } else {
         switch (unit) {
-        case COLX:
-            return QString("TestCOLXs");
-        case mCOLX:
-            return QString("Milli-TestCOLX (1 / 1" THIN_SP_UTF8 "000)");
-        case uCOLX:
-            return QString("Micro-TestCOLX (1 / 1" THIN_SP_UTF8 "000" THIN_SP_UTF8 "000)");
+        case zNODE:
+            return QString("TestzNODEs");
+        case mzNODE:
+            return QString("Milli-TestzNODE (1 / 1" THIN_SP_UTF8 "000)");
+        case uzNODE:
+            return QString("Micro-TestzNODE (1 / 1" THIN_SP_UTF8 "000" THIN_SP_UTF8 "000)");
         default:
             return QString("???");
         }
@@ -108,11 +108,11 @@ QString BitcoinUnits::description(int unit)
 qint64 BitcoinUnits::factor(int unit)
 {
     switch (unit) {
-    case COLX:
+    case zNODE:
         return 100000000;
-    case mCOLX:
+    case mzNODE:
         return 100000;
-    case uCOLX:
+    case uzNODE:
         return 100;
     default:
         return 100000000;
@@ -122,11 +122,11 @@ qint64 BitcoinUnits::factor(int unit)
 int BitcoinUnits::decimals(int unit)
 {
     switch (unit) {
-    case COLX:
+    case zNODE:
         return 8;
-    case mCOLX:
+    case mzNODE:
         return 5;
-    case uCOLX:
+    case uzNODE:
         return 2;
     default:
         return 0;

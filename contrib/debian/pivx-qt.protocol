@@ -1,6 +1,6 @@
 [Protocol]
-exec=colx-qt '%u'
-protocol=colx
+exec=znode-qt '%u'
+protocol=znode
 input=none
 output=none
 helper=true

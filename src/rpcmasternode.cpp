@@ -36,7 +36,7 @@ void SendMoney(const CTxDestination& address, CAmount nValue, CWalletTx& wtxNew,
         throw JSONRPCError(RPC_WALLET_ERROR, strError);
     }
 
-    // Parse Pivx address
+    // Parse ZeroNode address
     CScript scriptPubKey = GetScriptForDestination(address);
 
     // Create and send the transaction
@@ -56,8 +56,8 @@ Value obfuscation(const Array& params, bool fHelp)
 {
     if (fHelp || params.size() == 0)
         throw runtime_error(
-            "obfuscation <colxaddress> <amount>\n"
-            "colxaddress, reset, or auto (AutoDenominate)"
+            "obfuscation <znodeaddress> <amount>\n"
+            "znodeaddress, reset, or auto (AutoDenominate)"
             "<amount> is a real and will be rounded to the next 0.1" +
             HelpRequiringPassphrase());
 
@@ -78,14 +78,14 @@ Value obfuscation(const Array& params, bool fHelp)
 
     if (params.size() != 2)
         throw runtime_error(
-            "obfuscation <colxaddress> <amount>\n"
-            "colxaddress, denominate, or auto (AutoDenominate)"
+            "obfuscation <znodeaddress> <amount>\n"
+            "znodeaddress, denominate, or auto (AutoDenominate)"
             "<amount> is a real and will be rounded to the next 0.1" +
             HelpRequiringPassphrase());
 
     CBitcoinAddress address(params[0].get_str());
     if (!address.IsValid())
-        throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, "Invalid Pivx address");
+        throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, "Invalid ZeroNode address");
 
     // Amount
     CAmount nAmount = AmountFromValue(params[1]);
@@ -141,7 +141,7 @@ Value masternode(const Array& params, bool fHelp)
             "  genkey       - Generate new masternodeprivkey\n"
             "  enforce      - Enforce masternode payments\n"
             "  outputs      - Print masternode compatible outputs\n"
-            "  start        - Start masternode configured in colx.conf\n"
+            "  start        - Start masternode configured in znode.conf\n"
             "  start-alias  - Start single masternode by assigned alias configured in masternode.conf\n"
             "  start-<mode> - Start masternodes configured in masternode.conf (<mode>: 'all', 'missing', 'disabled')\n"
             "  status       - Print masternode status information\n"
@@ -445,7 +445,7 @@ Value masternode(const Array& params, bool fHelp)
             mnObj.push_back(Pair("message", activeMasternode.GetStatus()));
             return mnObj;
         }
-        throw runtime_error("Masternode not found in the list of available masternodes. Current status: " 
+        throw runtime_error("Masternode not found in the list of available masternodes. Current status: "
                             + activeMasternode.GetStatus() + "\n");
     }
 
@@ -571,7 +571,7 @@ Value masternodelist(const Array& params, bool fHelp)
             "    \"txhash\": \"hash\",    (string) Collateral transaction hash\n"
             "    \"outidx\": n,         (numeric) Collateral transaction output index\n"
             "    \"status\": s,         (string) Status (ENABLED/EXPIRED/REMOVE/etc)\n"
-            "    \"addr\": \"addr\",      (string) Masternode COLX address\n"
+            "    \"addr\": \"addr\",      (string) Masternode zNODE address\n"
             "    \"version\": v,        (numeric) Masternode protocol version\n"
             "    \"lastseen\": ttt,     (numeric) The time in seconds since epoch (Jan 1 1970 GMT) of the last seen\n"
             "    \"activetime\": ttt,   (numeric) The time in seconds since epoch (Jan 1 1970 GMT) masternode has been active\n"

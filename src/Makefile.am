@@ -64,15 +64,15 @@ bin_PROGRAMS =
 TESTS =
 
 if BUILD_BITCOIND
-  bin_PROGRAMS += colxd
+  bin_PROGRAMS += znoded
 endif
 
 if BUILD_BITCOIN_UTILS
-  bin_PROGRAMS += colx-cli colx-tx
+  bin_PROGRAMS += znode-cli znode-tx
 endif
 
 .PHONY: FORCE
-# colx core #
+# znode core #
 BITCOIN_CORE_H = \
   activemasternode.h \
   addrman.h \
@@ -180,7 +180,7 @@ obj/build.h: FORCE
 	  $(abs_top_srcdir)
 libbitcoin_util_a-clientversion.$(OBJEXT): obj/build.h
 
-# server: shared between colxd and colx-qt
+# server: shared between znoded and znode-qt
 libbitcoin_server_a_CPPFLAGS = $(BITCOIN_INCLUDES) $(MINIUPNPC_CPPFLAGS)
 libbitcoin_server_a_SOURCES = \
   addrman.cpp \
@@ -224,7 +224,7 @@ libbitcoin_zmq_a_SOURCES = \
   zmq/zmqpublishnotifier.cpp
 endif
 
-# wallet: shared between colxd and colx-qt, but only linked
+# wallet: shared between znoded and znode-qt, but only linked
 # when wallet enabled
 
 libbitcoin_wallet_a_CFLAGS = -fPIC
@@ -295,7 +295,7 @@ univalue_libbitcoin_univalue_a_SOURCES = \
   univalue/univalue_escapes.h \
   univalue/univalue.h
 
-# common: shared between colxd, and colx-qt and non-server tools
+# common: shared between znoded, and znode-qt and non-server tools
 libbitcoin_common_a_CPPFLAGS = $(BITCOIN_INCLUDES)
 libbitcoin_common_a_SOURCES = \
   allocators.cpp \
@@ -351,7 +351,7 @@ libbitcoin_util_a_SOURCES += compat/glibc_compat.cpp
 libbitcoin_util_a_SOURCES += compat/glibcxx_compat.cpp
 endif
 
-# cli: shared between colx-cli and colx-qt
+# cli: shared between znode-cli and znode-qt
 libbitcoin_cli_a_CPPFLAGS = $(BITCOIN_INCLUDES)
 libbitcoin_cli_a_SOURCES = \
   rpcclient.cpp \
@@ -361,7 +361,7 @@ nodist_libbitcoin_util_a_SOURCES = $(srcdir)/obj/build.h
 #
 
 # bitcoind binary #
-colxd_LDADD = \
+znoded_LDADD = \
   $(LIBBITCOIN_SERVER) \
   $(LIBBITCOIN_COMMON) \
   $(LIBBITCOIN_UNIVALUE) \
@@ -372,40 +372,40 @@ colxd_LDADD = \
   $(LIBSECP256K1)
 
 if ENABLE_ZMQ
-colxd_LDADD += $(LIBBITCOIN_ZMQ) $(ZMQ_LIBS)
+znoded_LDADD += $(LIBBITCOIN_ZMQ) $(ZMQ_LIBS)
 endif
 
 if ENABLE_WALLET
-colxd_LDADD += libbitcoin_wallet.a
+znoded_LDADD += libbitcoin_wallet.a
 endif
-colxd_SOURCES = colxd.cpp
+znoded_SOURCES = znoded.cpp
 #
 
 if TARGET_WINDOWS
-colxd_SOURCES += colxd-res.rc
+znoded_SOURCES += znoded-res.rc
 endif
 
-colxd_LDADD += $(BOOST_LIBS) $(BDB_LIBS) $(SSL_LIBS) $(CRYPTO_LIBS) $(MINIUPNPC_LIBS)
-colxd_CPPFLAGS = $(BITCOIN_INCLUDES)
-colxd_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
+znoded_LDADD += $(BOOST_LIBS) $(BDB_LIBS) $(SSL_LIBS) $(CRYPTO_LIBS) $(MINIUPNPC_LIBS)
+znoded_CPPFLAGS = $(BITCOIN_INCLUDES)
+znoded_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
 
 
-# colx-cli binary #
-colx_cli_LDADD = \
+# znode-cli binary #
+znode_cli_LDADD = \
   $(LIBBITCOIN_CLI) \
   $(LIBBITCOIN_UTIL) \
   $(BOOST_LIBS) \
   $(SSL_LIBS) \
   $(CRYPTO_LIBS)
 
-colx_cli_SOURCES = \
-  colx-cli.cpp
+znode_cli_SOURCES = \
+  znode-cli.cpp
 
-colx_cli_CPPFLAGS = $(BITCOIN_INCLUDES)
+znode_cli_CPPFLAGS = $(BITCOIN_INCLUDES)
 #
 
-# colx-tx binary #
-colx_tx_LDADD = \
+# znode-tx binary #
+znode_tx_LDADD = \
   $(LIBBITCOIN_UNIVALUE) \
   $(LIBBITCOIN_COMMON) \
   $(LIBBITCOIN_UTIL) \
@@ -414,15 +414,15 @@ colx_tx_LDADD = \
   $(BOOST_LIBS) \
   $(CRYPTO_LIBS)
 
-colx_tx_SOURCES = colx-tx.cpp
-colx_tx_CPPFLAGS = $(BITCOIN_INCLUDES)
+znode_tx_SOURCES = znode-tx.cpp
+znode_tx_CPPFLAGS = $(BITCOIN_INCLUDES)
 #
-colx_tx_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
+znode_tx_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
 
 if TARGET_WINDOWS
-colx_cli_SOURCES += colx-cli-res.rc
+znode_cli_SOURCES += znode-cli-res.rc
 endif
-colx_cli_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
+znode_cli_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
 
 if BUILD_BITCOIN_LIBS
 include_HEADERS = script/bitcoinconsensus.h

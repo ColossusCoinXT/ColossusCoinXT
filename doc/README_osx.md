@@ -91,7 +91,5 @@ build process to remain somewhat deterministic. Here's how it works:
   structure in the form of a tarball, which also contains all of the tools
   that have been previously (deterministically) built in order to create a
   final dmg.
-- **TODO** The Apple keyholder uses this unsigned app to create a detached signature,
-  using the script that is also included there. Detached signatures are available from this [repository](https://github.com/COLX-Project/colx-detached-sigs).
 - Builders feed the unsigned app + detached signature back into Gitian. It
   uses the pre-built tools to recombine the pieces into a deterministic dmg.

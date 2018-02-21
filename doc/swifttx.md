@@ -11,9 +11,9 @@ When a "Transaction Lock" occurs the hash of the related transaction is broadcas
 * `zmqpubrawtxlock`: publishes the raw transaction when locked via SwiftTX
 * `zmqpubhashtxlock`: publishes the transaction hash when locked via SwiftTX
 
-This mechanism has been integrated into Bitcore-Node-COLX which allows for notification to be broadcast through Insight API in one of two ways:
-* WebSocket: [https://github.com/COLX-Project/insight-api-colx#web-socket-api](https://github.com/COLX-Project/insight-api-colx#web-socket-api)
-* API: [https://github.com/COLX-Project/insight-api-colx#swifttx-transactions](https://github.com/COLX-Project/insight-api-colx#swifttx-transactions)
+This mechanism has been integrated into Bitcore-ZeroNode which allows for notification to be broadcast through Insight API in one of two ways:
+* WebSocket: [https://github.com/zeronode-project/insight-api-zeronode#web-socket-api](https://github.com/zeronode-project/insight-api-zeronode#web-socket-api)
+* API: [https://github.com/zeronode-project/insight-api-zeronode#swifttx-transactions](https://github.com/zeronode-project/insight-api-zeronode#swifttx-transactions)
 
 ####Command line option
 
@@ -27,13 +27,13 @@ When a wallet SwiftTX transaction is successfully locked a shell command provide
 
 Details pertaining to an observed "Transaction Lock" can also be retrieved through RPC, it’s important however to understand the underlying mechanism.
 
-By default, the COLX Core daemon will launch using the following constant:
+By default, the ZeroNode Core daemon will launch using the following constant:
 
 ```
 static const int DEFAULT_SWIFTTX_DEPTH = 5;
 ```
 
-This value can be overridden by passing the following argument to the COLX Core daemon:
+This value can be overridden by passing the following argument to the ZeroNode Core daemon:
 
 ```
 -swifttxdepth=<n>

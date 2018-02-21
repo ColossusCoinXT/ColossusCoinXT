@@ -13,7 +13,7 @@ static const int MODEL_UPDATE_DELAY = 250;
 /* AskPassphraseDialog -- Maximum passphrase length */
 static const int MAX_PASSPHRASE_SIZE = 1024;
 
-/* Pivx GUI -- Size of icons in status bar */
+/* ZeroNode GUI -- Size of icons in status bar */
 static const int STATUSBAR_ICONSIZE = 16;
 
 static const bool DEFAULT_SPLASHSCREEN = true;
@@ -48,9 +48,9 @@ static const int MAX_URI_LENGTH = 255;
 /* Number of frames in spinner animation */
 #define SPINNER_FRAMES 35
 
-#define QAPP_ORG_NAME "ColossusCoinXT"
-#define QAPP_ORG_DOMAIN "colx.org"
-#define QAPP_APP_NAME_DEFAULT "ColossusCoinXT-Qt"
-#define QAPP_APP_NAME_TESTNET "ColossusCoinXT-Qt-testnet"
+#define QAPP_ORG_NAME "ZeroNode"
+#define QAPP_ORG_DOMAIN "zernode.io"
+#define QAPP_APP_NAME_DEFAULT "znode-qt"
+#define QAPP_APP_NAME_TESTNET "znode-qt-testnet"
 
 #endif // BITCOIN_QT_GUICONSTANTS_H

@@ -219,10 +219,10 @@ Value stop(const Array& params, bool fHelp)
     if (fHelp || params.size() > 1)
         throw runtime_error(
             "stop\n"
-            "\nStop COLX server.");
+            "\nStop zNODE server.");
     // Shutdown will take long enough that the response should get back
     StartShutdown();
-    return "COLX server stopping";
+    return "zNODE server stopping";
 }
 
 
@@ -299,16 +299,16 @@ static const CRPCCommand vRPCCommands[] =
         {"hidden", "reconsiderblock", &reconsiderblock, true, true, false},
         {"hidden", "setmocktime", &setmocktime, true, false, false},
 
-        /* Pivx features */
-        {"colx", "masternode", &masternode, true, true, false},
-        {"colx", "masternodelist", &masternodelist, true, true, false},
-        {"colx", "mnbudget", &mnbudget, true, true, false},
-        {"colx", "mnbudgetvoteraw", &mnbudgetvoteraw, true, true, false},
-        {"colx", "mnfinalbudget", &mnfinalbudget, true, true, false},
-        {"colx", "mnsync", &mnsync, true, true, false},
-        {"colx", "spork", &spork, true, true, false},
+        /* ZeroNode features */
+        {"znode", "masternode", &masternode, true, true, false},
+        {"znode", "masternodelist", &masternodelist, true, true, false},
+        {"znode", "mnbudget", &mnbudget, true, true, false},
+        {"znode", "mnbudgetvoteraw", &mnbudgetvoteraw, true, true, false},
+        {"znode", "mnfinalbudget", &mnfinalbudget, true, true, false},
+        {"znode", "mnsync", &mnsync, true, true, false},
+        {"znode", "spork", &spork, true, true, false},
 #ifdef ENABLE_WALLET
-        {"colx", "obfuscation", &obfuscation, false, false, true}, /* not threadSafe because of SendMoney */
+        {"znode", "obfuscation", &obfuscation, false, false, true}, /* not threadSafe because of SendMoney */
 
         /* Wallet */
         {"wallet", "addmultisigaddress", &addmultisigaddress, true, false, true},
@@ -573,16 +573,16 @@ void StartRPCThreads()
         unsigned char rand_pwd[32];
         GetRandBytes(rand_pwd, 32);
         uiInterface.ThreadSafeMessageBox(strprintf(
-                                             _("To use colxd, or the -server option to colx-qt, you must set an rpcpassword in the configuration file:\n"
+                                             _("To use znoded, or the -server option to znode-qt, you must set an rpcpassword in the configuration file:\n"
                                                "%s\n"
                                                "It is recommended you use the following random password:\n"
-                                               "rpcuser=colxrpc\n"
+                                               "rpcuser=znoderpc\n"
                                                "rpcpassword=%s\n"
                                                "(you do not need to remember this password)\n"
                                                "The username and password MUST NOT be the same.\n"
                                                "If the file does not exist, create it with owner-readable-only file permissions.\n"
                                                "It is also recommended to set alertnotify so you are notified of problems;\n"
-                                               "for example: alertnotify=echo %%s | mail -s \"COLX Alert\" admin@foo.com\n"),
+                                               "for example: alertnotify=echo %%s | mail -s \"zNODE Alert\" admin@foo.com\n"),
                                              GetConfigFile().string(),
                                              EncodeBase58(&rand_pwd[0], &rand_pwd[0] + 32)),
             "", CClientUIInterface::MSG_ERROR | CClientUIInterface::SECURE);
@@ -1033,7 +1033,7 @@ std::vector<std::string> CRPCTable::listCommands() const
 
 std::string HelpExampleCli(string methodname, string args)
 {
-    return "> colx-cli " + methodname + " " + args + "\n";
+    return "> znode-cli " + methodname + " " + args + "\n";
 }
 
 std::string HelpExampleRpc(string methodname, string args)

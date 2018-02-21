@@ -1,6 +1,6 @@
 Mac OS X Build Instructions and Notes
 ====================================
-This guide will show you how to build colxd (headless client) for OSX.
+This guide will show you how to build zernoded (headless client) for OSX.
 
 Notes
 -----
@@ -40,14 +40,14 @@ Instructions: Homebrew
 
         brew install autoconf automake berkeley-db4 libtool boost miniupnpc openssl pkg-config protobuf qt5
 
-### Building `colxd`
+### Building `zernoded`
 
 1. Clone the github tree to get the source code and go into the directory.
 
-        git clone https://github.com/COLX-Project/COLX.git
-        cd COLX
+        git clone https://github.com/zNODE-Project/zNODE.git
+        cd zNODE
 
-2.  Build colxd:
+2.  Build zernoded:
 
         ./autogen.sh
         ./configure --with-gui=qt5
@@ -57,7 +57,7 @@ Instructions: Homebrew
 
         make check
 
-4.  (Optional) You can also install colxd to your path:
+4.  (Optional) You can also install zernoded to your path:
 
         make install
 
@@ -69,7 +69,7 @@ Download Qt Creator from http://www.qt.io/download/. Download the "community edi
 1. Make sure you installed everything through homebrew mentioned above
 2. Do a proper ./configure --with-gui=qt5 --enable-debug
 3. In Qt Creator do "New Project" -> Import Project -> Import Existing Project
-4. Enter "colx-qt" as project name, enter src/qt as location
+4. Enter "zeronode-qt" as project name, enter src/qt as location
 5. Leave the file selection as it is
 6. Confirm the "summary page"
 7. In the "Projects" tab select "Manage Kits..."
@@ -79,11 +79,11 @@ Download Qt Creator from http://www.qt.io/download/. Download the "community edi
 
 Creating a release build
 ------------------------
-You can ignore this section if you are building `colxd` for your own use.
+You can ignore this section if you are building `zernoded` for your own use.
 
-colxd/colx-cli binaries are not included in the colx-Qt.app bundle.
+zernoded/znode-cli binaries are not included in the znode-qt.app bundle.
 
-If you are building `colxd` or `colx-qt` for others, your build machine should be set up
+If you are building `zernoded` or `zeronode-qt` for others, your build machine should be set up
 as follows for maximum compatibility:
 
 All dependencies should be compiled with these flags:
@@ -92,30 +92,30 @@ All dependencies should be compiled with these flags:
  -arch x86_64
  -isysroot $(xcode-select --print-path)/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.7.sdk
 
-Once dependencies are compiled, see release-process.md for how the COLX-Qt.app
+Once dependencies are compiled, see release-process.md for how the znode-qt.app
 bundle is packaged and signed to create the .dmg disk image that is distributed.
 
 Running
 -------
 
-It's now available at `./colxd`, provided that you are still in the `src`
+It's now available at `./zernoded`, provided that you are still in the `src`
 directory. We have to first create the RPC configuration file, though.
 
-Run `./colxd` to get the filename where it should be put, or just try these
+Run `./zernoded` to get the filename where it should be put, or just try these
 commands:
 
-    echo -e "rpcuser=colxrpc\nrpcpassword=$(xxd -l 16 -p /dev/urandom)" > "/Users/${USER}/Library/Application Support/COLX/colx.conf"
-    chmod 600 "/Users/${USER}/Library/Application Support/COLX/colx.conf"
+    echo -e "rpcuser=znoderpc\nrpcpassword=$(xxd -l 16 -p /dev/urandom)" > "/Users/${USER}/Library/Application Support/zNODE/znode.conf"
+    chmod 600 "/Users/${USER}/Library/Application Support/zNODE/znode.conf"
 
 The next time you run it, it will start downloading the blockchain, but it won't
 output anything while it's doing this. This process may take several hours;
 you can monitor its process by looking at the debug.log file, like this:
 
-    tail -f $HOME/Library/Application\ Support/COLX/debug.log
+    tail -f $HOME/Library/Application\ Support/zNODE/debug.log
 
 Other commands:
 -------
 
-    ./colxd -daemon # to start the colx daemon.
-    ./colx-cli --help  # for a list of command-line options.
-    ./colx-cli help    # When the daemon is running, to get a list of RPC commands
+    ./zernoded -daemon # to start the znode daemon.
+    ./znode-cli --help  # for a list of command-line options.
+    ./znode-cli help    # When the daemon is running, to get a list of RPC commands

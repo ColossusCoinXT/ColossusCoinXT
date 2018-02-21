@@ -7,12 +7,12 @@ reset-files.bash
 *.tar.gz
 
 *.exe
-src/colx
-src/colxd
-src/colx-cli
-src/colx-tx
-src/test/test_colx
-src/qt/test/test_colx-qt
+src/znode
+src/znoded
+src/znode-cli
+src/znode-tx
+src/test/test_znode
+src/qt/test/test_znode-qt
 
 # autoreconf
 Makefile.in
@@ -35,8 +35,8 @@ config.log
 config.status
 configure
 libtool
-src/config/colx-config.h
-src/config/colx-config.h.in
+src/config/znode-config.h
+src/config/znode-config.h.in
 src/config/stamp-h1
 share/setup.nsi
 share/qt/Info.plist
@@ -62,7 +62,7 @@ src/qt/test/moc*.cpp
 *.o
 *.o-*
 *.patch
-.colx
+.znode
 *.a
 *.pb.cc
 *.pb.h
@@ -81,12 +81,12 @@ src/qt/test/moc*.cpp
 # Compilation and Qt preprocessor part
 *.qm
 Makefile
-colx-qt
-COLX-Qt.app
+znode-qt
+znode-qt.app
 
 # Unit-tests
 Makefile.test
-colx-qt_test
+znode-qt_test
 src/test/buildenv.py
 
 # Resources cpp

@@ -1,2 +1,2 @@
-usr/local/bin/colxd usr/bin
-usr/local/bin/colx-cli usr/bin
+usr/local/bin/znoded usr/bin
+usr/local/bin/znode-cli usr/bin
