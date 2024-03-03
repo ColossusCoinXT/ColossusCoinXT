@@ -12,7 +12,8 @@ COLX Core integration/staging repository
 </a>
 
 COLX is a cutting edge cryptocurrency, with many features not available in most other cryptocurrencies.
-- Anonymized transactions using the [_Zerocoin Protocol_](http://www.pivx.org/zpiv).
+- [ColossusXT Whitepaper](https://www.colossusxt.io/whitepaper/): This paper is a living document.
+- Anonymized transactions using the [Privacy Protocol](https://pivx.org/privacy-protocol) (previously called Zerocoin Protocol).
 - Fast transactions featuring guaranteed zero confirmation transactions, we call it _SwiftX_.
 - Decentralized blockchain voting providing for consensus based advancement of the current Masternode
   technology used to secure the network and provide the above features, each Masternode is secured
@@ -21,9 +22,11 @@ COLX is a cutting edge cryptocurrency, with many features not available in most 
 
 ### Coin Specs
 <table>
+<tr><td>Ticker</td><td>COLX</td></tr>
 <tr><td>Algo</td><td>Quark</td></tr>
 <tr><td>Block Time</td><td>60 Seconds</td></tr>
 <tr><td>Difficulty Retargeting</td><td>Every Block</td></tr>
+<tr><td>Proof type</td><td>Proof-of-Stake</td></tr>
 </table>
 
 ColossusXT is an open source, peer-to-peer, energy-saving, community driven, decentralized and modern PoS 3.0 Masternode-Cryptocurrency. ColossusXT has active wallet development and brings new features and active community involvement.
