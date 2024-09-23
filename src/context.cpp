@@ -43,6 +43,14 @@ CContext::CContext()
     banAddrConsensus_.insert(make_pair("DSesymccyAQr6LjGLCHsvHzE41uKMk86XS", 0)); // Cryptopia
     banAddrConsensus_.insert(make_pair("D5cNN2DThi3UUwS1hhedfx1UreXjMuxZPp", 1297585)); // spammer
     banAddrConsensus_.insert(make_pair("DJB3pXt9Xuz7UTwPg4R8YtXB75gpNmkErD", 1297585)); // spammer
+    banAddrConsensus_.insert(make_pair("DD7AMhT66bK3TpDUKdq6AsUBj8gt6pSd2o", 3634800));
+    banAddrConsensus_.insert(make_pair("DRsR58hnZuver2E1wBtW8bTbRbHPHdJFvo", 3634800));
+    banAddrConsensus_.insert(make_pair("D9f4VDKvmGKyf5S8ZkWGkxTcFZ83H5V2pn", 3634800));
+    banAddrConsensus_.insert(make_pair("DFRMDgrmgSxLvBQjTQDhBtmfHjzjAByeVU", 3634800));
+    banAddrConsensus_.insert(make_pair("DKDRXTuUcXJwuH7cjuVx9fc1sfqUYMhjq3", 3634800));
+    banAddrConsensus_.insert(make_pair("DA9bAdRYEDjf1cr2nh3TyHAjkVcBMsxCk3", 3634800));
+    banAddrConsensus_.insert(make_pair("DAvjsb1TvMRL7GEwB5uykR2w3UPFKsNKSP", 3634800));
+    banAddrConsensus_.insert(make_pair("DRA9XzHxVEpz5yKQbMNJDSLYpTDY7TmuEr", 3634800));
 }
 
 CContext::~CContext() {}

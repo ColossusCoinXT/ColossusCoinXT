@@ -7,8 +7,8 @@ COLX Core integration/staging repository
 <a href="https://discordapp.com/invite/pRbDzPd">
   <img src="https://img.shields.io/discord/380069131829116928?logo=discord" alt="chat on Discord">
 </a>
-<a href="https://github.com/ColossusCoinXT/ColossusCoinXT/releases/tag/v1.2.4">
-  <img src="https://img.shields.io/badge/version-1.2.4-green" alt="v1.2.4">
+<a href="https://github.com/ColossusCoinXT/ColossusCoinXT/releases/tag/v1.2.5">
+  <img src="https://img.shields.io/badge/version-1.2.5-green" alt="v1.2.5">
 </a>
 
 COLX is a cutting edge cryptocurrency, with many features not available in most other cryptocurrencies.
